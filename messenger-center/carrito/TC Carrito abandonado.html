@@ -1,0 +1,259 @@
+<!--
+=================================================
+ * Theme Name: Layout - Chedraui
+ * Company: Corebiz
+ * Author: Carlos Rodriguez Suarez
+ * TC - es un correo transaccional cliente
+ * Template - abandoned-cart
+ * TC Carrito abandonado CARRITO ABANDONADO
+ * CARRITO ABANDONADO
+ * Meta Title
+ * ¡No olvides tus productos finaliza tu compra!
+=================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- So that mobile webkit will display zoomed in -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- disable auto telephone linking in iOS -->
+    <title>{{_accountInfo.TradingName}}</title>
+    <style type="text/css">
+        body {
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            outline: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <table style="max-width: 36rem;" width="100%" cellpadding="15" cellspacing="0" border="0" align="center">
+        <!-- Header. Begin -->
+        <thead>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellpadding="0">
+                                    <tr>
+                                        <td width="100%" valign="middle">
+                                            <a href="https://www.chedraui.com.mx/" target="_blank"
+                                                rel="noopener noreferrer">
+                                                <img style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;"
+                                                    src="https://chedrauimxqa.vteximg.com.br/arquivos/chedraui_logo.png" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </thead>
+        <!-- Header. End -->
+        <!-- Content. Begin -->
+        <tbody>
+            <!-- Message. Begin -->
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td valign="middle">
+                                            <h2
+                                                style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0;">
+                                                Hola: {{email}}</h2>
+                                            <br />
+                                            <p
+                                                style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                                                ¡Tu carrito te espera! No pierdas la oportunidad de disfrutar las
+                                                mejores ofertas comprando en Chedraui en línea.
+                                            </p>
+                                            <br />
+                                            <div style="text-align: center;">
+                                                <a href="https://chedrauimxqa.myvtex.com/checkout/cart/{{addToCartURL}}"
+                                                    style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px 15px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none;">
+                                                    Terminar mi compra
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <!-- Message. End -->
+            <!-- Productos. Begin -->
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td valign="middle">
+                                            <h2
+                                                style="font-family: arial; font-size: 16px; font-weight: bold; color:#0d47a1; margin: 0; padding: 0; line-height: 18px;">
+                                                Actualmente en tu carrito</h2>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%" cellpadding="15" cellspacing="0"
+                        style="border: solid 1px #dfe3e8; border-radius: 8px; margin: 15px 0 0 0;">
+                        <!-- Productos Orders. Begin -->
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <!-- Titulos Productos. Begin -->
+                                    <tr>
+                                        <td width="20%" height="40px" align="left" valign="middle"
+                                            style="border-bottom: solid 1px #dfe3e8">
+                                            <strong
+                                                style="font-family: arial; font-size: 12px; font-weight: bold; color: #212B36; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Productos</strong>
+                                        </td>
+                                        <td width="40%" height="40px" valign="middle"
+                                            style="border-bottom: solid 1px #dfe3e8;">&nbsp;</td>
+                                        <td width="20%" height="40px" align="center" valign="middle"
+                                            style="border-bottom: solid 1px #dfe3e8;">
+                                            <strong
+                                                style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Cantidad</strong>
+                                        </td>
+                                        <td width="20%" height="40px" align="right" valign="middle"
+                                            style="border-bottom: solid 1px #ccc;">
+                                            <strong
+                                                style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Subtotal</strong>
+                                        </td>
+                                    </tr>
+                                    <!-- Titulos Productos. End -->
+                                    {{#each items}}
+                                    <!-- Resumen Productos. Begin -->
+                                    <tr>
+                                        <td width="10%" height="70px" align="left" valign="middle">
+                                            <img style="max-width: 60px; display: block; width: 60px; height: auto;"
+                                                src="{{image}}" alt="{{name}} | Chedraui">
+                                        </td>
+                                        <td width="50%" height="70px" align="left" valign="middle">
+                                            <a href="https://www.chedraui.com.mx/{{detailUrl}}" target=" _blank"
+                                                rel="noopener noreferrer"
+                                                style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{productName}}</a>
+                                        </td>
+                                        <td width="20%" height="70px" align="center" valign="middle">
+                                            <p
+                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36;">
+                                                {{quantity}}</p>
+                                        </td>
+                                        <td width="20%" height="70px" align="right" valign="middle">
+                                            <p
+                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1;">
+                                                $ {{sellingPrice}}</p>
+                                        </td>
+                                    </tr>
+                                    <!-- Resumen Productos. End -->
+                                    {{/each}}
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- Productos Orders. End -->
+                    </table>
+                </td>
+            </tr>
+            <!-- Productos. End -->
+            <!-- Promocion. Begin -->
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellpadding="0">
+                                    <tr>
+                                        <td valign="middle">
+                                            <a href="" target="_blank">
+                                                <img style="display: block; width: 100%; height: auto; margin: auto;"
+                                                    src="https://via.placeholder.com/800x350.png/f4f4f4/000?text=Banner%20promocional" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <!-- Promocion. End -->
+            <!-- Text. Begin -->
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td width="100%" valign="middle">
+                                            <p
+                                                style="font-family: arial; font-size: 12px; font-weight: 400; color: #212b367a; line-height: 14px; letter-spacing: 0px; margin: 0; padding: 0;">
+                                                Recibiste este correo porque creaste un carrito, pero no se finalizó el
+                                                proceso de compra.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <!-- Text. End -->
+        </tbody>
+        <!-- Content. Begin -->
+        <!-- Footer. Begin -->
+        <tfoot>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td width="100%" valign="middle" align="center">
+                                            <img style="display: block; width: 143px; max-width: 143px; height: auto; margin: 0 auto 15px;"
+                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/siempre_linea_logo.png" />
+                                            <p
+                                                style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;">
+                                                Conoce nuestros <a style="text-decoration: none; color: #212b367a;"
+                                                    href="https://www.chedraui.com.mx/aviso-de-privacidad"
+                                                    target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a> y
+                                                <a style="text-decoration: none; color: #212b367a;"
+                                                    href="https://www.chedraui.com.mx/terminos-condiciones"
+                                                    target="_blank" rel="noopener noreferrer">Términos
+                                                    y
+                                                    Condiciones</a>. <br /> Chedraui, 2021.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tfoot>
+        <!-- Footer. End -->
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!--
+=================================================
+ * Theme Name: Layout - Chedraui
+ * Company: Corebiz
+ * Author: Carlos Rodriguez Suarez
+ * TC - es un correo transaccional cliente
+ * Template - vtex-acceso-con-nip
+ * TC Clave de acceso RECUPERACIÓN DE CONTRASEÑA
+ * RECUPERACIÓN DE CONTRASEÑA
+ * Meta Title
+ * Tu código de acceso es: {{aditionalData.accessKey}}
+=================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- So that mobile webkit will display zoomed in -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- disable auto telephone linking in iOS -->
+    <title>{{_accountInfo.TradingName}}</title>
+    <style type="text/css">
+        body {
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            outline: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <table style="max-width: 36rem;" width="100%" cellpadding="15" cellspacing="0" border="0" align="center">
+        <!-- Header. Begin -->
+        <thead>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellpadding="0">
+                                    <tr>
+                                        <td width="100%" valign="middle">
+                                            <a href="https://www.chedraui.com.mx/" target="_blank"
+                                                rel="noopener noreferrer">
+                                                <img style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;"
+                                                    src="https://chedrauimxqa.vteximg.com.br/arquivos/chedraui_logo.png" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </thead>
+        <!-- Header. End -->
+        <!-- Content. Begin -->
+        <tbody>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td width="100%" valign="middle">
+                                            <h2
+                                                style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0; text-transform: capitalize;">
+                                                Hola {{to.0.name}}.</h2>
+                                            <br />
+                                            <p
+                                                style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                                                Recibimos una solicitud de cambio de contraseña para tu cuenta en
+                                                Chedraui. Este es tu Número de Identificación Personal para
+                                                restablecerla, será vigente durante 2 minutos.
+                                            </p>
+                                            <br />
+                                            <div style="text-align: center;">
+                                                <strong
+                                                    style="font-family: arial; font-size: 30px; font-weight: bold; color: #0d47a1; line-height: 34px; letter-spacing: 1.5px; padding:10px 15px; border-radius: 8px; background: #E0F2F8; display: inline-block; width: 235px;">{{aditionalData.accessKey}}</strong>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td width="100%" valign="middle">
+                                            <p
+                                                style="font-family: arial; font-size: 12px; font-weight: 400; color: #212b367a; line-height: 14px; letter-spacing: 0px; margin: 0; padding: 0;">
+                                                Si no solicitaste un cambio de contraseña, puedes ignorar este correo
+                                                electrónico y tu contraseña no se cambiará.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <!-- Content. End -->
+        <!-- Footer. Begin -->
+        <tfoot>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td width="100%" valign="middle" align="center">
+                                            <img style="display: block; width: 143px; max-width: 143px; height: auto; margin: 0 auto 15px;"
+                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/siempre_linea_logo.png" />
+                                            <p
+                                                style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;">
+                                                Conoce nuestros <a style="text-decoration: none; color: #212b367a;"
+                                                    href="https://www.chedraui.com.mx/aviso-de-privacidad"
+                                                    target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a> y
+                                                <a style="text-decoration: none; color: #212b367a;"
+                                                    href="https://www.chedraui.com.mx/terminos-condiciones"
+                                                    target="_blank" rel="noopener noreferrer">Términos
+                                                    y
+                                                    Condiciones</a>. <br /> Chedraui, 2021.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tfoot>
+        <!-- Footer. End -->
+    </table>
+</body>
+
+</html>
