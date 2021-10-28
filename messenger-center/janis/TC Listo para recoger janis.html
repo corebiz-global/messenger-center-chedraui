@@ -8,7 +8,7 @@
  * TC Listo para recoger LISTO PARA RECOGER
  * LISTO PARA RECOGER
  * Meta Title
- * ¡Tu pedido {{subjectItemAttachment.item}} {{#if subjectItemAttachment.extraItems}} y más {{subjectItemAttachment.extraItems}} producto(s) {{/if}}. Han sido entregados!
+ * ¡Tu pedido esta listo para recoger!
 =================================================
 -->
 
@@ -120,7 +120,6 @@
                         style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0; text-transform:capitalize;">
                         Hola: {{clientProfileData.firstName}}.</h2>
                       <br />
-                      <!-- AMERICAN EXPRESS -->
                       <p
                         style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                         Se ha completado la entrega de todos los productos asociados a tu pedido
@@ -155,35 +154,7 @@
               </td>
             </tr>
           </table>
-          <table width="100%" cellpadding="15" cellspacing="0" style="background: #F0F5FD;">
-            <tr>
-              <td>
-                <table width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td valign="middle">
-                      <p class="delivery-group-content"
-                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float: left; margin: 0; letter-spacing: -1px;">
-                        <img
-                          style="display: inline-block; vertical-align: middle; width: 100%; max-width: 20px; height: auto; margin: auto;"
-                          src="https://chedrauimxqa.vteximg.com.br/arquivos/assets-envio-che.png" />
-                        {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
-                      </p>
-                      <p class="delivery-group-contents"
-                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
-                        <img
-                          style="display: inline-block; vertical-align: middle; width: 100%; max-width: 20px; height: auto; margin: auto;"
-                          src="https://chedrauimxqa.vteximg.com.br/arquivos/assets-calendario-che.png" />
-                        {{formatDateTime
-                        shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-          <table width="100%" cellpadding="15" cellspacing="0"
-            style="border-radius: 0 0 8px 8px; border-left: solid 1px #dfe3e8; border-right: solid 1px #dfe3e8; border-bottom: solid 1px #dfe3e8;">
+          <table width="100%" cellpadding="15" cellspacing="0" style="border-radius: 8px; border: solid 1px #dfe3e8;">
             <!-- Inside Productos Orders. Begin -->
             <tr>
               <td>
@@ -211,12 +182,12 @@
                   <!-- Resumen Productos. Begin -->
                   <tr>
                     <td width="10%" height="70px" align="left" valign="middle">
-                      <img style="max-width: 60px; display: block; width: 100%; height: auto;"
-                        src="https:{{replace imageUrl 'http:' ''}}" alt="{{name}} | Chedraui">
+                      <img style="max-width: 60px; display: block; width: 60px; height: auto;" src="{{imageUrl}}"
+                        alt="{{name}} | Chedraui">
                     </td>
                     <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                      <a href="{{detailUrl}}" target="_blank"
-                        style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;"><span>{{skuName}}</span></a>
+                      <a href="https://www.chedraui.com.mx/{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                        style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{name}}</a>
                       <p class="hide-mobile"
                         style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
                         $ {{formatUSDCurrency price}} {{measurementUnit}}</p>
@@ -397,7 +368,7 @@
                   <tr>
                     <td valign="middle" style="display: inline-flex; align-items: center;">
                       <img
-                        style="display: block; height: auto; margin: auto; padding: 0 10px; width: 100%; max-width: 65px;"
+                        style="display: block; height: auto; margin: auto; padding: 0 10px; width: 65px; max-width: 65px;"
                         src="https://chedrauimxqa.vteximg.com.br/arquivos/super_seguro.png" />
                       <p
                         style="font-family: arial; font-size: 12px; font-weight: 400; color: #212B36; text-align: left; line-height: 14px; letter-spacing: -0.15px;">
@@ -475,21 +446,21 @@
                 <table width="100%" cellpadding="0" cellspacing="15">
                   <tr>
                     <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
-                      <img style="width: 100%; max-width: 50px; height: auto;"
+                      <img style="width: 50px; max-width: 50px; height: auto;"
                         src="https://chedrauimxqa.vteximg.com.br/arquivos/ayuda.png" />
                       <p
                         style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">
                         Visita el Centro de ayuda</p>
                     </td>
                     <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
-                      <img style="width: 100%; max-width: 50px; height: auto;"
+                      <img style="width: 50px; max-width: 50px; height: auto;"
                         src="https://chedrauimxqa.vteximg.com.br/arquivos/llamanos.png" />
                       <p
                         style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">
                         Llámanos al 55 5563 2222</p>
                     </td>
                     <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
-                      <img style="width: 100%; max-width: 50px; height: auto;"
+                      <img style="width: 50px; max-width: 50px; height: auto;"
                         src="https://chedrauimxqa.vteximg.com.br/arquivos/correo.png" />
                       <p
                         style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">
@@ -515,14 +486,19 @@
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td width="100%" valign="middle" align="center">
-                      <img style="display: block; width: 100%; max-width: 143px; height: auto; margin: 0 auto 15px;"
+                      <img style="display: block; width: 143px; max-width: 143px; height: auto; margin: 0 auto 15px;"
                         src="https://chedrauimxqa.vteximg.com.br/arquivos/siempre_linea_logo.png" />
                       <p
                         style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;">
-                        Conoce nuestros <a style="text-decoration: none; color: #212b367a;" href="#">Aviso de
-                          Privacidad</a> y <a style="text-decoration: none; color: #212b367a;" href="#">Términos
+                        Conoce nuestros <a style="text-decoration: none; color: #212b367a;"
+                          href="https://www.chedraui.com.mx/aviso-de-privacidad" target="_blank"
+                          rel="noopener noreferrer">Aviso de Privacidad</a> y
+                        <a style="text-decoration: none; color: #212b367a;"
+                          href="https://www.chedraui.com.mx/terminos-condiciones" target="_blank"
+                          rel="noopener noreferrer">Términos
                           y
-                          Condiciones</a>. <br /> Chedraui, 2021.</p>
+                          Condiciones</a>. <br /> Chedraui, 2021.
+                      </p>
                     </td>
                   </tr>
                 </table>
