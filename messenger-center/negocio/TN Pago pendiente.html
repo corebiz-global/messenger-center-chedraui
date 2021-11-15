@@ -41,6 +41,8 @@
             .delivery-group-content {
                 width: 100%;
                 display: block;
+                overflow: hidden;
+                height: 100%;
             }
 
             .delivery-group-content div {
@@ -91,7 +93,7 @@
                                 <table width="100%" cellpadding="0" cellpadding="0">
                                     <tr>
                                         <td width="100%" valign="middle">
-                                            <a href="https://www.chedraui.com.mx/" target="_blank"
+                                            <a href="https://chedrauimxqa.myvtex.com/" target="_blank"
                                                 rel="noopener noreferrer">
                                                 <img style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;"
                                                     src="https://chedrauimxqa.vteximg.com.br/arquivos/chedraui_logo.png" />
@@ -108,7 +110,7 @@
         <!-- Header. End -->
         <!-- Content. End -->
         <tbody>
-            <!-- Message. Begin -->
+            <!-- Inside Message Client. Begin -->
             <tr>
                 <td>
                     <table width="100%" cellpadding="0" cellspacing="0">
@@ -119,22 +121,18 @@
                                         <td width="100%" valign="middle">
                                             <h2
                                                 style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0;">
-                                                Hola: {{accountInfo.Email}}.</h2>
+                                                Hola, {{accountInfo.Email}}.</h2>
                                             <br />
                                             <p
                                                 style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                                                 Es necesario ponerse en contacto con {{payment.acquirer}} y comprobar si
-                                                el pago se
-                                                capturó correctamente o no.
+                                                el pago se capturó correctamente o no.
                                                 <br />
+                                                <br /> El sistema pagos recibió una respuesta no válida en el momento de
+                                                la solicitud de captura del integrador.
                                                 <br />
-                                                El sistema pagos recibió una
-                                                respuesta no válida en el momento de la solicitud de captura del
-                                                integrador.
-                                                <br />
-                                                <br />
-                                                A continuación, encontrará información de autorización útil
-                                                que ayudará a informar al personal de soporte de {{payment.acquirer}}.
+                                                <br /> A continuación, encontrará información de autorización útil que
+                                                ayudará a informar al personal de soporte de {{payment.acquirer}}.
                                             </p>
                                         </td>
                                     </tr>
@@ -144,7 +142,8 @@
                     </table>
                 </td>
             </tr>
-            <!-- Message. End -->
+            <!-- Inside Message Client. End -->
+            <!-- Inside Product. Begin -->
             <tr>
                 <td>
                     <table width="100%" cellpadding="0" cellspacing="0">
@@ -230,8 +229,8 @@
                     </table>
                 </td>
             </tr>
-            <!-- Productos. End -->
-            <!-- Message. Begin -->
+            <!-- Inside Product. End -->
+            <!-- Inside Messages. Begin -->
             <tr>
                 <td>
                     <table width="100%" cellpadding="0" cellspacing="0">
@@ -243,10 +242,10 @@
                                             <p
                                                 style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                                                 Proveedor de pago : <strong
-                                                    style="color: #F56D00;">{{payment.acquirer}}</strong><br />
-                                                Método de pago : <strong
-                                                    style="color: #F56D00;">{{payment.name}}</strong><br />
-                                                Monto a cancelar : <strong style="color: #F56D00;">$ {{formatCurrency
+                                                    style="color: #F56D00;">{{payment.acquirer}}</strong><br /> Método
+                                                de pago : <strong
+                                                    style="color: #F56D00;">{{payment.name}}</strong><br /> Monto a
+                                                cancelar : <strong style="color: #F56D00;">$ {{formatCurrency
                                                     payment.actionValue}}</strong>
                                             </p>
                                         </td>
@@ -257,96 +256,7 @@
                     </table>
                 </td>
             </tr>
-            <!-- Message. End -->
-            <tr>
-                <td>
-                    <table width="100%" cellpadding="15" cellspacing="0">
-                        <tr>
-                            <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
-                                <table width="100%" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td width="100%" valign="middle">
-                                            <strong
-                                                style="font-family: arial; display: block; font-size: 14px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">¿Necesitas
-                                                ayuda?
-                                            </strong>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
-                                <table width="100%" cellpadding="0" cellspacing="15">
-                                    <tr>
-                                        <td width="50%" valign="middle" align="center">
-                                            <picture>
-                                                <!-- Update for mobile image -->
-                                                <source class="responsive-image" media="(max-width: 767px)"
-                                                    srcset="https://chedrauimxqa.vteximg.com.br/arquivos/mobile_ayuda_pregunta.png">
-                                                <!-- Update 2x image for retina and fallback for normal desktop -->
-                                                <!-- Keep fallback image on the same line following the retina image or the retina link will break when compiling -->
-                                                <source media="(min-width: 768px)"
-                                                    srcset="https://chedrauimxqa.vteximg.com.br/arquivos/desktop_ayuda_pregunta.png 2x, https://chedrauimxqa.vteximg.com.br/arquivos/desktop_ayuda_pregunta.png">
-                                                <!-- Update default desktop image -->
-                                                <img style="width: 100%; height: auto;"
-                                                    src="https://chedrauimxqa.vteximg.com.br/arquivos/desktop_ayuda_pregunta.png">
-                                            </picture>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
-                                <table width="100%" cellpadding="15" cellspacing="0">
-                                    <tr>
-                                        <td width="100%" valign="middle" align="center">
-                                            <hr style="margin: 0;">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td style="border: solid 1px #F0F5FD" bgcolor="#F0F5FD">
-                                <table width="100%" cellpadding="0" cellspacing="15">
-                                    <tr>
-                                        <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
-                                            <img style="width: 50px; max-width: 50px; height: auto;"
-                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/ayuda.png" />
-                                            <p
-                                                style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">
-                                                Visita el Centro de ayuda</p>
-                                        </td>
-                                        <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
-                                            <img style="width: 50px; max-width: 50px; height: auto;"
-                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/llamanos.png" />
-                                            <p
-                                                style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">
-                                                Llámanos al 55 5563 2222</p>
-                                        </td>
-                                        <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
-                                            <img style="width: 50px; max-width: 50px; height: auto;"
-                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/correo.png" />
-                                            <p
-                                                style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">
-                                                Envíanos un correo</p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <!-- Text. End -->
+            <!-- Inside Messages. Begin -->
         </tbody>
         <!-- Content. Begin -->
         <!-- Footer. Begin -->
@@ -363,14 +273,10 @@
                                                 src="https://chedrauimxqa.vteximg.com.br/arquivos/siempre_linea_logo.png" />
                                             <p
                                                 style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;">
-                                                Conoce nuestros <a style="text-decoration: none; color: #212b367a;"
-                                                    href="https://www.chedraui.com.mx/aviso-de-privacidad"
-                                                    target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a> y
-                                                <a style="text-decoration: none; color: #212b367a;"
-                                                    href="https://www.chedraui.com.mx/terminos-condiciones"
-                                                    target="_blank" rel="noopener noreferrer">Términos
-                                                    y
-                                                    Condiciones</a>. <br /> Chedraui, 2021.
+                                                Gracias por comprar en nuestra tienda en línea <a
+                                                    style="text-decoration: none; color: #F56D00;"
+                                                    href="https://chedrauimxqa.myvtex.com/" target="_blank"
+                                                    rel="noopener noreferrer">chedraui.com.mx</a>.
                                             </p>
                                         </td>
                                     </tr>

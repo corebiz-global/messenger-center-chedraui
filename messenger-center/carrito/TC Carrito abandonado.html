@@ -23,11 +23,59 @@
     <!-- disable auto telephone linking in iOS -->
     <title>{{_accountInfo.TradingName}}</title>
     <style type="text/css">
-        body {
-            border: 0px;
-            padding: 0px;
-            margin: 0px;
-            outline: 0;
+        .delivery-group-content {
+            width: 50%;
+        }
+
+        .delivery-group-contents {
+            width: 50%;
+            text-align: right;
+        }
+
+        .mobile-box {
+            display: none !important;
+        }
+
+        @media screen and (max-width:480px) {
+            .delivery-group-content {
+                width: 100%;
+                display: block;
+                overflow: hidden;
+                height: 100%;
+            }
+
+            .delivery-group-content div {
+                margin: 15px 0 0 0 !important;
+                min-height: inherit !important;
+            }
+
+            .delivery-group-contents {
+                width: 100%;
+                text-align: left;
+                display: block;
+            }
+
+            .delivery-group-content-table {
+                width: 100%;
+                display: table-cell;
+            }
+
+            .hide-mobile {
+                display: none;
+            }
+
+            .mobile-box {
+                display: inline-block !important;
+                padding-right: 10px;
+            }
+
+            .boxr {
+                float: right;
+            }
+
+            .w-100 {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -44,7 +92,7 @@
                                 <table width="100%" cellpadding="0" cellpadding="0">
                                     <tr>
                                         <td width="100%" valign="middle">
-                                            <a href="https://www.chedraui.com.mx/" target="_blank"
+                                            <a href="https://chedrauimxqa.myvtex.com/" target="_blank"
                                                 rel="noopener noreferrer">
                                                 <img style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;"
                                                     src="https://chedrauimxqa.vteximg.com.br/arquivos/chedraui_logo.png" />
@@ -61,7 +109,7 @@
         <!-- Header. End -->
         <!-- Content. Begin -->
         <tbody>
-            <!-- Message. Begin -->
+            <!-- Inside Message Client. Begin -->
             <tr>
                 <td>
                     <table width="100%" cellpadding="0" cellspacing="0">
@@ -72,7 +120,7 @@
                                         <td valign="middle">
                                             <h2
                                                 style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0;">
-                                                Hola: {{email}}</h2>
+                                                Hola, {{email}}.</h2>
                                             <br />
                                             <p
                                                 style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
@@ -94,8 +142,8 @@
                     </table>
                 </td>
             </tr>
-            <!-- Message. End -->
-            <!-- Productos. Begin -->
+            <!-- Message Client. End -->
+            <!-- Inside Product. Begin -->
             <tr>
                 <td>
                     <table width="100%" cellpadding="0" cellspacing="0">
@@ -172,8 +220,8 @@
                     </table>
                 </td>
             </tr>
-            <!-- Productos. End -->
-            <!-- Promocion. Begin -->
+            <!-- Inside Product. End  -->
+            <!-- Inside Promocion. Begin -->
             <tr>
                 <td>
                     <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
@@ -194,8 +242,8 @@
                     </table>
                 </td>
             </tr>
-            <!-- Promocion. End -->
-            <!-- Text. Begin -->
+            <!-- Inside Promocion. End -->
+            <!-- Inside Note Refunds. Begin -->
             <tr>
                 <td>
                     <table width="100%" cellpadding="0" cellspacing="0">
@@ -217,7 +265,7 @@
                     </table>
                 </td>
             </tr>
-            <!-- Text. End -->
+            <!-- Inside Note Refunds. End -->
         </tbody>
         <!-- Content. Begin -->
         <!-- Footer. Begin -->
@@ -234,14 +282,10 @@
                                                 src="https://chedrauimxqa.vteximg.com.br/arquivos/siempre_linea_logo.png" />
                                             <p
                                                 style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;">
-                                                Conoce nuestros <a style="text-decoration: none; color: #212b367a;"
-                                                    href="https://www.chedraui.com.mx/aviso-de-privacidad"
-                                                    target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a> y
-                                                <a style="text-decoration: none; color: #212b367a;"
-                                                    href="https://www.chedraui.com.mx/terminos-condiciones"
-                                                    target="_blank" rel="noopener noreferrer">Términos
-                                                    y
-                                                    Condiciones</a>. <br /> Chedraui, 2021.
+                                                Gracias por comprar en nuestra tienda en línea <a
+                                                    style="text-decoration: none; color: #F56D00;"
+                                                    href="https://chedrauimxqa.myvtex.com/" target="_blank"
+                                                    rel="noopener noreferrer">chedraui.com.mx</a>.
                                             </p>
                                         </td>
                                     </tr>
