@@ -176,10 +176,10 @@
                                             <p
                                                 style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                                                 Recibimos tu orden de pedido <strong
-                                                    style="color: #F56D00;">{{orders.0.orderId}}</strong>, <strong> sin
-                                                    embargo no
-                                                    podremos confirmar tu compra hasta recibir el monto pendiente de
-                                                    pago a través del medio seleccionado. </strong>
+                                                    style="color: #F56D00;">{{orders.0.orderId}}</strong>, sin
+                                                embargo <strong>no podremos confirmar tu compra hasta recibir el monto
+                                                    pendiente de
+                                                    pago</strong> a través del medio seleccionado.
                                                 <br /><br />
                                                 Acércate a la tienda <strong style="color: #F56D00;">Chedraui</strong>
                                                 de tu preferencia antes del <strong>{{formatDate
@@ -195,14 +195,13 @@
                                             <p
                                                 style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                                                 Recibimos tu orden de pedido <strong
-                                                    style="color: #F56D00;">{{orders.0.orderId}}</strong>, <strong> sin
-                                                    embargo no
-                                                    podremos confirmar tu compra hasta recibir el monto pendiente de
-                                                    pago a través del medio seleccionado. </strong>
+                                                    style="color: #F56D00;">{{orders.0.orderId}}</strong>, sin
+                                                embargo <strong>no podremos confirmar tu compra hasta recibir el monto
+                                                    pendiente de
+                                                    pago</strong> a través del medio seleccionado.
                                                 <br /><br />
                                                 Acércate a la tienda <strong style="color: #F56D00;">Chedraui</strong>
-                                                de tu preferencia antes del
-                                                <strong>{{formatDate
+                                                de tu preferencia antes del <strong>{{formatDate
                                                     orders.0.creationDate}}</strong> para poder confirmar tu
                                                 pedido a tiempo para la entrega agendada.
                                                 <br /><br />
@@ -526,7 +525,7 @@
                                         </td>
                                         <td class="delivery-group-content-table" width="50%" height="70px" align="left"
                                             valign="middle">
-                                            <a href="https://www.chedraui.com.mx/{{detailUrl}}" target=" _blank"
+                                            <a href="https://chedrauimxqa.myvtex.com{{detailUrl}}" target=" _blank"
                                                 rel="noopener noreferrer"
                                                 style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
                                             <p class="hide-mobile"
@@ -537,7 +536,7 @@
                                                 $ {{formatUSDCurrency price}} {{measurementUnit}}</p>
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
-                                                {{quantity}}</p>
+                                                {{quantity}} {{measurementUnit}}</p>
                                             <p class="mobile-box boxr"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;">
                                                 $ {{formatUSDCurrency priceDefinition.total}}</p>
@@ -546,7 +545,7 @@
                                             valign="middle">
                                             <p
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36;">
-                                                {{quantity}}</p>
+                                                {{quantity}} {{measurementUnit}}</p>
                                         </td>
                                         <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
                                             <p

@@ -121,9 +121,8 @@
                                         <td width="100%" valign="middle">
                                             <h2
                                                 style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0; text-transform:capitalize;">
-                                                Hola: {{clientProfileData.firstName}}.</h2>
+                                                Hola, {{clientProfileData.firstName}}.</h2>
                                             <br />
-                                            <!-- AMERICAN EXPRESS -->
                                             <p
                                                 style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                                                 Se ha completado la entrega de todos los productos asociados a tu pedido
@@ -216,11 +215,11 @@
                                     <tr>
                                         <td width="10%" height="70px" align="left" valign="middle">
                                             <img style="max-width: 60px; display: block; width: 60px; height: auto;"
-                                                src="https:{{replace imageUrl 'http:' ''}}" alt="{{name}} | Chedraui">
+                                                src="{{imageUrl}}" alt="{{name}} | Chedraui">
                                         </td>
                                         <td class="delivery-group-content-table" width="50%" height="70px" align="left"
                                             valign="middle">
-                                            <a href="https://www.chedraui.com.mx/{{detailUrl}}" target=" _blank"
+                                            <a href="https://chedrauimxqa.myvtex.com{{detailUrl}}" target=" _blank"
                                                 rel="noopener noreferrer"
                                                 style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
                                             <p class="hide-mobile"
@@ -231,7 +230,7 @@
                                                 $ {{formatUSDCurrency price}} {{measurementUnit}}</p>
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
-                                                {{quantity}}</p>
+                                                {{quantity}} {{measurementUnit}}</p>
                                             <p class="mobile-box boxr"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;">
                                                 $ {{formatUSDCurrency priceDefinition.total}}</p>
@@ -240,7 +239,7 @@
                                             valign="middle">
                                             <p
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36;">
-                                                {{quantity}}</p>
+                                                {{quantity}} {{measurementUnit}}</p>
                                         </td>
                                         <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
                                             <p
