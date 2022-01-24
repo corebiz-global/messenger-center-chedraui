@@ -11,7 +11,6 @@
  *¡Gracias por tu preferencia! Tu pedido {{subjectItemAttachment.item}} {{#if subjectItemAttachment.extraItems}} y más {{subjectItemAttachment.extraItems}} Producto(s) {{/if}} ha sido realizado con éxito.
 =================================================
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +21,7 @@
     <!-- So that mobile webkit will display zoomed in -->
     <meta name="format-detection" content="telephone=no">
     <!-- disable auto telephone linking in iOS -->
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <title>{{_accountInfo.TradingName}}</title>
     <style type="text/css">
         .delivery-group-content {
@@ -95,9 +95,9 @@
                                     Confirmación de pedido</p>
                             </td>
                             <td width="20%" align="center" valign="middle">
-                                <a href="https://chedrauimxqa.myvtex.com/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://chedrauimx.myvtex.com/" target="_blank" rel="noopener noreferrer">
                                     <img style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;"
-                                        src="https://chedrauimxqa.vteximg.com.br/arquivos/chedraui_logo.png" />
+                                        src="https://chedrauimx.vteximg.com.br/arquivos/chedraui_logo.png" />
                                 </a>
                             </td>
                             <td width="40%" align="right" valign="middle">
@@ -248,8 +248,8 @@
                                             <!-- AMERICAN EXPRESS -->
                                             {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
                                             <p>
-                                                <a href="https://chedrauimxqa.myvtex.com/account#/orders"
-                                                    target="_blank" rel="noopener noreferrer"
+                                                <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                                                    rel="noopener noreferrer"
                                                     style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                                                     Dar seguimiento a mi pedido
                                                 </a>
@@ -258,8 +258,8 @@
                                             <!-- VISA -->
                                             {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
                                             <p>
-                                                <a href="https://chedrauimxqa.myvtex.com/account#/orders"
-                                                    target="_blank" rel="noopener noreferrer"
+                                                <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                                                    rel="noopener noreferrer"
                                                     style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                                                     Dar seguimiento a mi pedido
                                                 </a>
@@ -268,8 +268,8 @@
                                             <!-- PAYPAL -->
                                             {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
                                             <p>
-                                                <a href="https://chedrauimxqa.myvtex.com/account#/orders"
-                                                    target="_blank" rel="noopener noreferrer"
+                                                <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                                                    rel="noopener noreferrer"
                                                     style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                                                     Dar seguimiento a mi pedido
                                                 </a>
@@ -278,8 +278,8 @@
                                             <!-- VALE -->
                                             {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
                                             <p>
-                                                <a href="https://chedrauimxqa.myvtex.com/account#/orders"
-                                                    target="_blank" rel="noopener noreferrer"
+                                                <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                                                    rel="noopener noreferrer"
                                                     style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                                                     Dar seguimiento a mi pedido
                                                 </a>
@@ -288,8 +288,8 @@
                                             <!-- CASH ON DELIVERY -->
                                             {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
                                             <p>
-                                                <a href="https://chedrauimxqa.myvtex.com/account#/orders"
-                                                    target="_blank" rel="noopener noreferrer"
+                                                <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                                                    rel="noopener noreferrer"
                                                     style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                                                     Dar seguimiento a mi pedido
                                                 </a>
@@ -308,8 +308,8 @@
                                             <!-- PAGO EN TIENDA CHEDRAUI -->
                                             {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
                                             <p>
-                                                <a href="https://chedrauimxqa.myvtex.com/account#/orders"
-                                                    target="_blank" rel="noopener noreferrer"
+                                                <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                                                    rel="noopener noreferrer"
                                                     style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                                                     Dar seguimiento a mi pedido
                                                 </a>
@@ -318,8 +318,8 @@
                                             <!-- PUNTOS BBVA -->
                                             {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
                                             <p>
-                                                <a href="https://chedrauimxqa.myvtex.com/account#/orders"
-                                                    target="_blank" rel="noopener noreferrer"
+                                                <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                                                    rel="noopener noreferrer"
                                                     style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                                                     Dar seguimiento a mi pedido
                                                 </a>
@@ -328,8 +328,8 @@
                                             <!-- VALES -->
                                             {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
                                             <p>
-                                                <a href="https://chedrauimxqa.myvtex.com/account#/orders"
-                                                    target="_blank" rel="noopener noreferrer"
+                                                <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                                                    rel="noopener noreferrer"
                                                     style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                                                     Dar seguimiento a mi pedido
                                                 </a>
@@ -402,6 +402,12 @@
                                                     style="font-family: arial; display: block; font-size: 14px; font-weight: 400; color: #212B36; line-height: 18px; padding: 0; margin: 0;">
                                                     Forma de pago:
                                                     <strong>{{orders.0.paymentData.transactions.0.payments.0.paymentSystemName}}</strong><br />
+                                                    {{#eq orders.0.paymentData.giftCards.0.provider 'MiMonedero'}}
+                                                    Forma de pago: <strong>Monedero</strong>
+                                                    {{/eq}}
+                                                    {{#eq orders.0.paymentData.giftCards.0.provider 'MonederoDespensa'}}
+                                                    Forma de pago: <strong>Monedero</strong>
+                                                    {{/eq}}
                                                     Entregado por: <strong>Chedraui</strong>
                                                 </p>
                                             </div>
@@ -472,15 +478,34 @@
                                             <p class="delivery-group-content"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float: left; margin: 0; letter-spacing: -1px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
                                                 <img style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
-                                                    src="https://chedrauimxqa.vteximg.com.br/arquivos/assets-envio-che.png" />
+                                                    src="https://chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
                                                 {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
                                             </p>
                                             <p class="delivery-group-contents"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
                                                 <img style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
-                                                    src="https://chedrauimxqa.vteximg.com.br/arquivos/assets-calendario-che.png" />
-                                                {{formatDateTime
-                                                shippingData.logisticsInfo.0.slas.0.shippingEstimateDate timeStamp}}
+                                                    src="https://chedrauimx.vteximg.com.br/arquivos/assets-calendario-che.png" />
+                                                {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
+                                                let startDateUtc = string.split('+');
+                                                return startDateUtc[0];
+                                                });"}}
+
+                                                {{eval "Handlebars.registerHelper('boxendutc', function(string) {
+                                                let endDateUtc = string.split('+');
+                                                return endDateUtc[0];
+                                                });"}}
+
+                                                {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
+                                                return _formatDateTime(value, 'dd/MM/yyyy');
+                                                });"}}
+
+                                                {{formatUSDateCol
+                                                shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}
+                                                de
+                                                {{formatTime (boxstartutc
+                                                shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a
+                                                {{formatTime (boxendutc
+                                                shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
                                             </p>
                                         </td>
                                     </tr>
@@ -525,7 +550,7 @@
                                         </td>
                                         <td class="delivery-group-content-table" width="50%" height="70px" align="left"
                                             valign="middle">
-                                            <a href="https://chedrauimxqa.myvtex.com{{detailUrl}}" target=" _blank"
+                                            <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank"
                                                 rel="noopener noreferrer"
                                                 style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
                                             <p class="hide-mobile"
@@ -703,7 +728,7 @@
                                                 sustituido o no es surtido, aplicaremos el reembolso conforme al medio
                                                 de pago que utilizaste, <a
                                                     style="color: #f56d00; text-decoration: none;"
-                                                    href="https://chedrauimxqa.myvtex.com/cambios-y-devoluciones"
+                                                    href="https://chedrauimx.myvtex.com/cambios-y-devoluciones"
                                                     target="_blank" rel="noopener noreferrer">consulta aquí cómo
                                                     se aplican los reembolsos</span>.
                                             </p>
@@ -739,8 +764,8 @@
                                         </td>
                                         <td class="delivery-group-content" width="40%" height="70" valign="middle">
                                             <img style="display: block; height: auto; margin: 20px auto 10px; padding: 0; width: 140px; max-width: 140px;"
-                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/assets-stars-che.png?v=2" />
-                                            <a href="https://omni.chedraui.com.mx/limesurvey/index.php/481344"
+                                                src="https://chedrauimx.vteximg.com.br/arquivos/assets-stars-che.png?v=2" />
+                                            <a href="https://omni.chedraui.com.mx/limesurvey/index.php/481344?p={{orders.0.orderId}}&c=web"
                                                 target="_blank" rel="noopener noreferrer"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; background: #FBC02D; display: block; text-align: center; color: #212B36; padding: 8px; line-height: 20px; letter-spacing: 0; text-decoration: none; border-radius: 4px; margin: 0;">Califica
                                                 tu compra</a>
@@ -763,13 +788,13 @@
                                     <tr>
                                         <td valign="middle" style="display: inline-flex; align-items: center;">
                                             <img style="display: block; height: auto; margin: auto; padding: 0 10px; width: 65px; max-width: 65px;"
-                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/super_seguro.png" />
+                                                src="https://chedrauimx.vteximg.com.br/arquivos/super_seguro.png" />
                                             <p
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; color: #212B36; text-align: left; line-height: 14px; letter-spacing: -0.15px;">
                                                 Por tu seguridad, durante la contingencia de COVID 19, no será necesario
                                                 firmes nada al momento de recibir tus productos, <a
                                                     style="color: #f56d00; text-decoration: none;"
-                                                    href="https://chedrauimxqa.myvtex.com/medidas-frente-al-covid"
+                                                    href="https://chedrauimx.myvtex.com/medidas-frente-al-covid"
                                                     target="_blank" rel="noopener noreferrer">consulta aquí más medidas
                                                     frente al
                                                     COVID-19</span>.
@@ -807,22 +832,19 @@
                             <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
                                 <table width="100%" cellpadding="0" cellspacing="15">
                                     <tr>
-                                        <td width="50%" valign="middle" align="center">
-                                            <a href="https://chedrauimxqa.vteximg.com.br/arquivos/ayuda.png"
-                                                target="_blank" rel="noopener noreferrer">
-                                                <picture>
-                                                    <!-- Update for mobile image -->
-                                                    <source class="responsive-image" media="(max-width: 767px)"
-                                                        srcset="https://chedrauimxqa.vteximg.com.br/arquivos/mobile_ayuda_pregunta.png">
-                                                    <!-- Update 2x image for retina and fallback for normal desktop -->
-                                                    <!-- Keep fallback image on the same line following the retina image or the retina link will break when compiling -->
-                                                    <source media="(min-width: 768px)"
-                                                        srcset="https://chedrauimxqa.vteximg.com.br/arquivos/desktop_ayuda_pregunta.png 2x, https://chedrauimxqa.vteximg.com.br/arquivos/desktop_ayuda_pregunta.png">
-                                                    <!-- Update default desktop image -->
-                                                    <img style="width: 100%; height: auto;"
-                                                        src="https://chedrauimxqa.vteximg.com.br/arquivos/desktop_ayuda_pregunta.png">
-                                                </picture>
-                                            </a>
+                                        <td class="delivery-group-content" width="50%" valign="middle" align="left"
+                                            bgcolor="#FFFFFF" style="border: solid 1px #F0F5FD;">
+                                            <a href="https://chedrauimx.myvtex.com/compras-en-linea/entergas-a-domicilio/02"
+                                                target="_blank" rel="noopener noreferrer"
+                                                style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(https://chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo
+                                                puedo cambiar la hora o día de entrega de mi pedido?</a>
+                                        </td>
+                                        <td class="delivery-group-content" width="50%" valign="middle" align="left"
+                                            bgcolor="#FFFFFF" style="border: solid 1px #F0F5FD;">
+                                            <a href="https://chedrauimx.myvtex.com/compras-en-linea/problemas-con-mi-pedido/03"
+                                                target="_blank" rel="noopener noreferrer"
+                                                style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(https://chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo
+                                                puedo cancelar mi pedido?</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -849,22 +871,22 @@
                                     <tr>
                                         <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
                                             <img style="width: 50px; max-width: 50px; height: auto;"
-                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/ayuda.png" />
-                                            <a href="https://chedrauimxqa.myvtex.com/centro-de-ayuda" target="_blank"
+                                                src="https://chedrauimx.vteximg.com.br/arquivos/ayuda.png" />
+                                            <a href="https://chedrauimx.myvtex.com/centro-de-ayuda" target="_blank"
                                                 rel="noopener noreferrer"
                                                 style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;">
                                                 Visita el Centro de ayuda</a>
                                         </td>
                                         <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
                                             <img style="width: 50px; max-width: 50px; height: auto;"
-                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/llamanos.png" />
+                                                src="https://chedrauimx.vteximg.com.br/arquivos/llamanos.png" />
                                             <a href="tel:55-5563-2222"
                                                 style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;">
                                                 Llámanos al 55 5563 2222</a>
                                         </td>
                                         <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
                                             <img style="width: 50px; max-width: 50px; height: auto;"
-                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/correo.png" />
+                                                src="https://chedrauimx.vteximg.com.br/arquivos/correo.png" />
                                             <a href="mailto:ayuda@chedraui.com.mx"
                                                 style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;">
                                                 Envíanos un correo</a>
@@ -890,12 +912,12 @@
                                     <tr>
                                         <td width="100%" valign="middle" align="center">
                                             <img style="display: block; width: 143px; max-width: 143px; height: auto; margin: 0 auto 15px;"
-                                                src="https://chedrauimxqa.vteximg.com.br/arquivos/siempre_linea_logo.png" />
+                                                src="https://chedrauimx.vteximg.com.br/arquivos/siempre_linea_logo.png" />
                                             <p
                                                 style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;">
                                                 Gracias por comprar en nuestra tienda en línea <a
                                                     style="text-decoration: none; color: #F56D00;"
-                                                    href="https://chedrauimxqa.myvtex.com/" target="_blank"
+                                                    href="https://chedrauimx.myvtex.com/" target="_blank"
                                                     rel="noopener noreferrer">chedraui.com.mx</a>.
                                             </p>
                                         </td>
