@@ -313,8 +313,53 @@
                                                     de pago</strong>
                                                 <p
                                                     style="font-family: arial; display: block; font-size: 14px; font-weight: 400; color: #212B36; line-height: 18px; padding: 0; margin: 0;">
-                                                    Forma de pago:
-                                                    <strong>{{paymentData.transactions.0.payments.0.paymentSystemName}}</strong>
+                                                    {{#each paymentData.transactions}}
+                                                    {{#each payments}}
+                                                    <!-- AMERICAN EXPRESS -->
+                                                    {{#eq paymentSystem '1'}}
+                                                    Forma de pago: <strong>American Express</strong><br />
+                                                    {{/eq}}
+                                                    <!-- VISA -->
+                                                    {{#eq paymentSystem '2'}}
+                                                    Forma de pago: <strong>Visa</strong><br />
+                                                    {{/eq}}
+                                                    <!-- MASTERCARD   -->
+                                                    {{#eq paymentSystem '4'}}
+                                                    Forma de pago: <strong>Mastercard</strong><br />
+                                                    {{/eq}}
+                                                    <!-- PAYPAL -->
+                                                    {{#eq paymentSystem '12'}}
+                                                    Forma de pago: <strong>Paypal</strong><br />
+                                                    {{/eq}}
+                                                    <!-- VALE -->
+                                                    {{#eq paymentSystem '16'}}
+                                                    Forma de pago: <strong>Monedero Mi Chedraui</strong><br />
+                                                    {{/eq}}
+                                                    <!-- CASH ON DELIVERY -->
+                                                    {{#eq paymentSystem '201'}}
+                                                    Forma de pago: <strong>Pago contraentrega (al recibir tu
+                                                        pedido)</strong><br />
+                                                    {{/eq}}
+                                                    <!-- PAGO EN TIENDA -->
+                                                    {{#eq paymentSystem '202'}}
+                                                    Forma de pago: <strong>Pre-pago en establecimientos
+                                                        asociados</strong><br />
+                                                    {{/eq}}
+                                                    <!-- PAGO EN TIENDA CHEDRAUI -->
+                                                    {{#eq paymentSystem '203'}}
+                                                    Forma de pago: <strong>Pre-pago en tiendas Chedraui</strong><br />
+                                                    {{/eq}}
+                                                    <!-- PUNTOS BBVA -->
+                                                    {{#eq paymentSystem '501'}}
+                                                    Forma de pago: <strong>Pago con puntos BBVA</strong><br />
+                                                    {{/eq}}
+                                                    <!-- VALES -->
+                                                    {{#eq paymentSystem '502'}}
+                                                    Forma de pago: <strong>Vales de despensa electrónicos</strong><br />
+                                                    {{/eq}}
+                                                    {{/each}}
+                                                    {{/each}}
+                                                    Entregado por: <strong>Chedraui</strong>
                                                 </p>
                                             </div>
                                         </td>

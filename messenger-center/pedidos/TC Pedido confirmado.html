@@ -420,57 +420,53 @@
                                                 <p
                                                     style="font-family: arial; display: block; font-size: 14px; font-weight: 400; color: #212B36; line-height: 18px; padding: 0; margin: 0;">
                                                     <!-- AMERICAN EXPRESS -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '1'}}
+                                                    {{#each orders}}
+                                                    {{#each paymentData.transactions}}
+                                                    {{#each payments}}
+                                                    {{#eq paymentSystem '1'}}
                                                     Forma de pago: <strong>American Express</strong><br />
                                                     {{/eq}}
                                                     <!-- VISA -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '2'}}
+                                                    {{#eq paymentSystem '2'}}
                                                     Forma de pago: <strong>Visa</strong><br />
                                                     {{/eq}}
                                                     <!-- MASTERCARD   -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '4'}}
+                                                    {{#eq paymentSystem '4'}}
                                                     Forma de pago: <strong>Mastercard</strong><br />
                                                     {{/eq}}
                                                     <!-- PAYPAL -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '12'}}
+                                                    {{#eq paymentSystem '12'}}
                                                     Forma de pago: <strong>Paypal</strong><br />
                                                     {{/eq}}
                                                     <!-- VALE -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '16'}}
+                                                    {{#eq paymentSystem '16'}}
                                                     Forma de pago: <strong>Monedero Mi Chedraui</strong><br />
                                                     {{/eq}}
                                                     <!-- CASH ON DELIVERY -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '201'}}
+                                                    {{#eq paymentSystem '201'}}
                                                     Forma de pago: <strong>Pago contraentrega (al recibir tu
                                                         pedido)</strong><br />
                                                     {{/eq}}
                                                     <!-- PAGO EN TIENDA -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '202'}}
+                                                    {{#eq paymentSystem '202'}}
                                                     Forma de pago: <strong>Pre-pago en establecimientos
                                                         asociados</strong><br />
                                                     {{/eq}}
                                                     <!-- PAGO EN TIENDA CHEDRAUI -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '203'}}
+                                                    {{#eq paymentSystem '203'}}
                                                     Forma de pago: <strong>Pre-pago en tiendas Chedraui</strong><br />
                                                     {{/eq}}
                                                     <!-- PUNTOS BBVA -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '501'}}
+                                                    {{#eq paymentSystem '501'}}
                                                     Forma de pago: <strong>Pago con puntos BBVA</strong><br />
                                                     {{/eq}}
                                                     <!-- VALES -->
-                                                    {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem
-                                                    '502'}}
+                                                    {{#eq paymentSystem '502'}}
                                                     Forma de pago: <strong>Vales de despensa electrónicos</strong><br />
                                                     {{/eq}}
+                                                    {{/each}}
+                                                    {{/each}}
+                                                    {{/each}}
                                                     Entregado por: <strong>Chedraui</strong>
                                                 </p>
                                             </div>
