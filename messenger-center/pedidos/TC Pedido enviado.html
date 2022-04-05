@@ -237,20 +237,37 @@
                                             <img style="max-width: 60px; display: block; width: 60px; height: auto;"
                                                 src="{{imageUrl}}" alt="{{name}} | Chedraui">
                                         </td>
+                                        {{eval "Handlebars.registerHelper('kilostotal', function (string) {
+                                            return string.measurementUnit == 'kg' ? (
+                                                ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier * string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
+                                            ) : string.unitMultiplier + ' '+ string.measurementUnit
+                                        });" }}
+                                        {{eval "Handlebars.registerHelper('pza', function (string) {                                    
+                                            return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
+                                        });" }}
                                         <td class="delivery-group-content-table" width="50%" height="70px" align="left"
                                             valign="middle">
                                             <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank"
                                                 rel="noopener noreferrer"
                                                 style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
+                                                {{eval "Handlebars.registerHelper('gramos', function (string) {
+                                                    return string.measurementUnit == 'kg' ? (
+                                                        ((((string.unitMultiplier * 1000) * 1) % 1000) == 0) ? (string.unitMultiplier) + ' kg' : (string.unitMultiplier * 1000) + ' g'
+                                                    ) : string.unitMultiplier + ' '+ string.measurementUnit
+                                                });" }}
                                             <p class="hide-mobile"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                $ {{formatUSDCurrency price}} {{measurementUnit}}</p>
+                                                $ {{formatUSDCurrency price}} - {{gramos .}}</p>
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                $ {{formatUSDCurrency price}} {{measurementUnit}}</p>
+                                                $ {{formatUSDCurrency price}} - {{gramos .}}</p>
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
-                                                {{quantity}} {{measurementUnit}}</p>
+                                                    {{kilostotal .}} 
+                                                <small style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                                                    {{pza .}}
+                                                </small></p>
+                                                
                                             <p class="mobile-box boxr"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;">
                                                 $ {{formatUSDCurrency priceDefinition.total}}</p>
@@ -258,8 +275,13 @@
                                         <td class="hide-mobile" width="15%" height="70px" align="center"
                                             valign="middle">
                                             <p
-                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36;">
-                                                {{quantity}} {{measurementUnit}}</p>
+                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin-bottom:0;">
+                                                {{kilostotal .}} 
+                                                </p> 
+                                                <p
+                                                style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                                                {{pza .}}
+                                                </p> 
                                         </td>
                                         <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
                                             <p
@@ -309,13 +331,18 @@
                                                 style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{name}}</a>
                                             <p class="hide-mobile"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                $ {{formatUSDCurrency price}} {{measurementUnit}}</p>
+                                                $ {{formatUSDCurrency price}} - {{gramos .}}</p>
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                {{measurementUnit}}</p>
+                                                $ {{formatUSDCurrency price}} - {{gramos .}}</p>
+
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
-                                                {{quantity}} {{measurementUnit}}</p>
+                                                    {{kilostotal .}} 
+                                                <small style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                                                    {{pza .}}
+                                                </small></p>
+                                                
                                             <p class="mobile-box boxr"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;">
                                                 $ {{formatUSDCurrency price}}</p>
@@ -323,8 +350,13 @@
                                         <td class="hide-mobile" width="15%" height="70px" align="center"
                                             valign="middle">
                                             <p
-                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36;">
-                                                {{quantity}} {{measurementUnit}}</p>
+                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin-bottom:0;">
+                                                {{kilostotal .}} 
+                                                </p> 
+                                                <p
+                                                style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                                                {{pza .}}
+                                                </p> 
                                         </td>
                                         <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
                                             <p
@@ -375,13 +407,17 @@
                                                 style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{name}}</a>
                                             <p class="hide-mobile"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                $ {{formatUSDCurrency price}} {{measurementUnit}}</p>
+                                                $ {{formatUSDCurrency price}} - {{gramos .}}</p>
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                {{measurementUnit}}</p>
+                                                $ {{formatUSDCurrency price}} - {{gramos .}}</p>
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
-                                                {{quantity}} {{measurementUnit}}</p>
+                                                    {{kilostotal .}} 
+                                                <small style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                                                    {{pza .}}
+                                                </small></p>
+                                                
                                             <p class="mobile-box boxr"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;">
                                                 $ {{formatUSDCurrency price}}</p>
@@ -389,8 +425,13 @@
                                         <td class="hide-mobile" width="15%" height="70px" align="center"
                                             valign="middle">
                                             <p
-                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36;">
-                                                {{quantity}} {{measurementUnit}}</p>
+                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin-bottom:0;">
+                                                {{kilostotal .}} 
+                                                </p> 
+                                                <p
+                                                style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                                                {{pza .}}
+                                                </p> 
                                         </td>
                                         <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
                                             <p
@@ -444,25 +485,57 @@
                                                 {{#eq id "Items"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Subtotal </p>
-                                                {{/eq}} {{#eq id "Shipping"}}
+                                                    Subtotal
+                                                </p>
+                                                {{/eq}}
+                                                {{#eq id "Shipping"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Costo de envío</p>{{/eq}} {{#eq id "Discounts"}}
+                                                    Costo de envío</p>
+                                                {{/eq}}
+                                                {{#eq id "Discounts"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    Con Chedraui ahorras</p>
+                                                {{/eq}}
+                                                {{#eq id "Tax"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Cupón de descuento</p>{{/eq}} {{#eq id "Tax"}}
+                                                    Taxas</p>
+                                                {{/eq}}
+                                                {{#eq id "Change"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Taxas</p>{{/eq}} {{#eq id "Change"}}
-                                                <p
-                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Modificaciones</p>{{/eq}}
+                                                    Modificaciones</p>
+                                                {{/eq}}
                                             </td>
                                             <td valign="top" align="right">
+                                                {{#eq id "Items"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
                                                     $ {{formatCurrency value}}</p>
+                                                {{/eq}}
+                                                {{#eq id "Shipping"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    $ {{formatCurrency value}}</p>
+                                                {{/eq}}
+                                                {{#eq id "Tax"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    $ {{formatCurrency value}}</p>
+                                                {{/eq}}
+                                                {{#eq id "Change"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    $ {{formatCurrency value}}</p>
+                                                {{/eq}}
+
+                                                {{#eq id "Discounts"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    $ {{formatCurrency value}}</p>
+                                                {{/eq}}
                                             </td>
                                         </tr>
                                         {{/if}} {{/each}} {{#if value}}
@@ -500,9 +573,6 @@
                                                     Total del pedido</p>
                                                 <hr
                                                     style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
-                                                <p
-                                                    style="font-family: arial; font-size: 14px; font-weight: bold; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Monto a favor</p>
                                             </td>
                                             <td valign="top" align="right">
                                                 <p
@@ -510,9 +580,6 @@
                                                     $ {{formatCurrency value}}</p>
                                                 <hr
                                                     style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
-                                                <p
-                                                    style="font-family: arial; font-size: 14px; font-weight: bold; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    $ 0.00</p>
                                             </td>
                                         </tr>
                                         {{/if}}

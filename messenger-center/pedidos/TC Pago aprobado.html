@@ -173,7 +173,7 @@
                                         <td width="100%" valign="middle">
                                             <h2
                                                 style="font-family: arial; font-size: 16px; font-weight: bold; color:#0d47a1; margin: 0; padding: 0; line-height: 18px;">
-                                                Detalle de envio</h2>
+                                                Detalle de tu pedido</h2>
                                         </td>
                                     </tr>
                                 </table>
@@ -181,10 +181,13 @@
                                     <tr>
                                         <td valign="top" class="delivery-group-content">
                                             <div
-                                                style="border: solid 1px #dfe3e8; border-radius: 8px; margin: 15px 5px 0 0; padding: 15px; height: 100%; min-height: 180px;">
-                                                <strong
-                                                    style="font-family: arial; display: block; font-size: 12px; font-weight: bold; color: #454F5B7A; line-height: 18px; padding: 0; margin: 0;">Dirección
-                                                    de envío</strong>
+                                            style="border: solid 1px #dfe3e8; border-radius: 8px; margin: 15px 5px 0 0; padding: 15px; height: 100%; min-height: 180px;">
+                                            {{#compare shippingData.address.addressType '==' "pickup"}}
+                                                <strong style="font-family: arial; display: block; font-size: 12px; font-weight: bold; color: #454F5B7A; line-height: 18px; padding: 0; margin: 0;">Dirección de recolección</strong>
+                                            {{/compare}}
+                                            {{#compare shippingData.address.addressType '!=' "pickup"}}
+                                                <strong style="font-family: arial; display: block; font-size: 12px; font-weight: bold; color: #454F5B7A; line-height: 18px; padding: 0; margin: 0;">Dirección de envío</strong>
+                                            {{/compare}}
                                                 <p
                                                     style="font-family: arial; display: block; font-size: 14px; font-weight: 400; color: #212B36; line-height: 18px; padding: 0; margin: 0; text-transform: capitalize;">
                                                     {{shippingData.address.street}} {{#if shippingData.address.number }}
@@ -214,54 +217,64 @@
                                                 <strong
                                                     style="font-family: arial; display: block; font-size: 12px; font-weight: bold; color: #454F5B7A; line-height: 18px; padding: 0; margin: 0;">Método
                                                     de pago</strong>
-                                                <p
+                                                    <p
                                                     style="font-family: arial; display: block; font-size: 14px; font-weight: 400; color: #212B36; line-height: 18px; padding: 0; margin: 0;">
                                                     {{#each paymentData.transactions}}
-                                                    {{#each payments}}
+                                                        {{#each payments}}
+                                                            {{#eq paymentSystem '1'}}
+                                                            Pago con Tarjeta •••• {{lastDigits}} <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+                                                            <!-- VISA -->
+                                                            {{#eq paymentSystem '2'}}
+                                                            Pago con Tarjeta •••• {{lastDigits}} <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+                                                            <!-- MASTERCARD   -->
+                                                            {{#eq paymentSystem '4'}}
+                                                            Pago con Tarjeta •••• {{lastDigits}} <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+                                                            <!-- PAYPAL -->
+                                                            {{#eq paymentSystem '12'}}
+                                                            Pago con <strong>Paypal</strong> <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+                                                            <!-- VALE -->
+                                                            {{#eq paymentSystem '16'}}
+                                                            Pago con <strong>Monedero Mi Chedraui</strong> <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+                                                            <!-- CASH ON DELIVERY -->
+                                                            {{#eq paymentSystem '201'}}
+                                                            Forma de pago: <strong>Pago contraentrega (al recibir tu pedido)</strong> <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+                                                            <!-- PAGO EN TIENDA -->
+                                                            {{#eq paymentSystem '202'}}
+                                                            Forma de pago: <strong>Pre-pago en establecimientos asociados</strong> <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+                                                            <!-- PAGO EN TIENDA CHEDRAUI -->
+                                                            {{#eq paymentSystem '203'}}
+                                                            Forma de pago: <strong>Pre-pago en tiendas Chedraui</strong> <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+                                                            <!-- PUNTOS BBVA -->
+                                                            {{#eq paymentSystem '501'}}
+                                                            Pago con <strong>con puntos BBVA</strong> <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+                                                            <!-- VALES -->
+                                                            {{#eq paymentSystem '502'}}
+                                                            Pago con <strong>Vales de despensa electrónicos</strong> <strong>$ {{formatCurrency value}}</strong><br />
+                                                            {{/eq}}
+
+                                                            {{#compare installments '!=' 1}}
+                                                             <small style="font-style: italic; color: #212B367A;">
+                                                                ({{installments}}x) <br>
+                                                             </small>
+                                                            {{/compare}}
+
+                                                        {{/each}}
+                                                    {{/each}}
                                                     <!-- AMERICAN EXPRESS -->
-                                                    {{#eq paymentSystem '1'}}
-                                                    Forma de pago: <strong>American Express</strong><br />
-                                                    {{/eq}}
-                                                    <!-- VISA -->
-                                                    {{#eq paymentSystem '2'}}
-                                                    Forma de pago: <strong>Visa</strong><br />
-                                                    {{/eq}}
-                                                    <!-- MASTERCARD   -->
-                                                    {{#eq paymentSystem '4'}}
-                                                    Forma de pago: <strong>Mastercard</strong><br />
-                                                    {{/eq}}
-                                                    <!-- PAYPAL -->
-                                                    {{#eq paymentSystem '12'}}
-                                                    Forma de pago: <strong>Paypal</strong><br />
-                                                    {{/eq}}
-                                                    <!-- VALE -->
-                                                    {{#eq paymentSystem '16'}}
-                                                    Forma de pago: <strong>Monedero Mi Chedraui</strong><br />
-                                                    {{/eq}}
-                                                    <!-- CASH ON DELIVERY -->
-                                                    {{#eq paymentSystem '201'}}
-                                                    Forma de pago: <strong>Pago contraentrega (al recibir tu
-                                                        pedido)</strong><br />
-                                                    {{/eq}}
-                                                    <!-- PAGO EN TIENDA -->
-                                                    {{#eq paymentSystem '202'}}
-                                                    Forma de pago: <strong>Pre-pago en establecimientos
-                                                        asociados</strong><br />
-                                                    {{/eq}}
-                                                    <!-- PAGO EN TIENDA CHEDRAUI -->
-                                                    {{#eq paymentSystem '203'}}
-                                                    Forma de pago: <strong>Pre-pago en tiendas Chedraui</strong><br />
-                                                    {{/eq}}
-                                                    <!-- PUNTOS BBVA -->
-                                                    {{#eq paymentSystem '501'}}
-                                                    Forma de pago: <strong>Pago con puntos BBVA</strong><br />
-                                                    {{/eq}}
-                                                    <!-- VALES -->
-                                                    {{#eq paymentSystem '502'}}
-                                                    Forma de pago: <strong>Vales de despensa electrónicos</strong><br />
-                                                    {{/eq}}
-                                                    {{/each}}
-                                                    {{/each}}
+                                                    
+                                                            
+                                                
+
+
                                                     Entregado por: <strong>Chedraui</strong>
                                                 </p>
                                             </div>
@@ -277,22 +290,6 @@
             <!-- Inside Product. Begin -->
             <tr>
                 <td>
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td>
-                                <table width="100%" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td valign="middle">
-                                            <h2
-                                                style="font-family: arial; font-size: 16px; font-weight: bold; color:#0d47a1; margin: 0; padding: 0; line-height: 18px;">
-                                                Detalle de tu pedido</h2>
-                                            <br />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
                     <table width="100%" cellpadding="15" cellspacing="0" style="background: #F0F5FD;">
                         <tr>
                             <td>
@@ -372,20 +369,40 @@
                                             <img style="max-width: 60px; display: block; width: 60px; height: auto;"
                                                 src="{{imageUrl}}" alt="{{name}} | Chedraui">
                                         </td>
+                                        {{eval "Handlebars.registerHelper('kilostotal', function (string) {
+                                            return string.measurementUnit == 'kg' ? (
+                                                ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier * string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
+                                            ) : string.unitMultiplier + ' '+ string.measurementUnit
+                                        });" }}
+                                        {{eval "Handlebars.registerHelper('pza', function (string) {                                    
+                                            return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
+                                        });" }}
                                         <td class="delivery-group-content-table" width="50%" height="70px" align="left"
                                             valign="middle">
                                             <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank"
                                                 rel="noopener noreferrer"
                                                 style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
+                                                {{eval "Handlebars.registerHelper('gramos', function (string) {
+                                                    return string.measurementUnit == 'kg' ? (
+                                                        ((((string.unitMultiplier * 1000) * 1) % 1000) == 0) ? (string.unitMultiplier) + ' kg' : (string.unitMultiplier * 1000) + ' g'
+                                                    ) : string.unitMultiplier + ' '+ string.measurementUnit
+                                                });" }}
                                             <p class="hide-mobile"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                $ {{formatUSDCurrency price}} {{measurementUnit}}</p>
+                                                
+                                                $ {{formatUSDCurrency price}} - {{gramos .}}</p>
+                                            
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                $ {{formatUSDCurrency price}} {{measurementUnit}}</p>
+                                                $ {{formatUSDCurrency price}} - {{gramos .}}</p>
+
                                             <p class="mobile-box"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
-                                                {{quantity}} {{measurementUnit}}</p>
+                                                    {{kilostotal .}} 
+                                                <small style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                                                    {{pza .}}
+                                                </small></p>
+                                                
                                             <p class="mobile-box boxr"
                                                 style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;">
                                                 $ {{formatUSDCurrency priceDefinition.total}}</p>
@@ -393,8 +410,13 @@
                                         <td class="hide-mobile" width="15%" height="70px" align="center"
                                             valign="middle">
                                             <p
-                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36;">
-                                                {{quantity}} {{measurementUnit}}</p>
+                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin-bottom:0;">
+                                                {{kilostotal .}} 
+                                                </p> 
+                                                <p
+                                                style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                                                {{pza .}}
+                                                </p> 
                                         </td>
                                         <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
                                             <p
@@ -448,24 +470,57 @@
                                                 {{#eq id "Items"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Subtotal</p>{{/eq}} {{#eq id "Shipping"}}
+                                                    Subtotal
+                                                </p>
+                                                {{/eq}}
+                                                {{#eq id "Shipping"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Costo de envío</p>{{/eq}} {{#eq id "Discounts"}}
+                                                    Costo de envío</p>
+                                                {{/eq}}
+                                                {{#eq id "Discounts"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    Con Chedraui ahorras</p>
+                                                {{/eq}}
+                                                {{#eq id "Tax"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Cupón de descuento</p>{{/eq}} {{#eq id "Tax"}}
+                                                    Taxas</p>
+                                                {{/eq}}
+                                                {{#eq id "Change"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Taxas</p>{{/eq}} {{#eq id "Change"}}
-                                                <p
-                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Modificaciones</p>{{/eq}}
+                                                    Modificaciones</p>
+                                                {{/eq}}
                                             </td>
                                             <td valign="top" align="right">
+                                                {{#eq id "Items"}}
                                                 <p
                                                     style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
                                                     $ {{formatCurrency value}}</p>
+                                                {{/eq}}
+                                                {{#eq id "Shipping"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    $ {{formatCurrency value}}</p>
+                                                {{/eq}}
+                                                {{#eq id "Tax"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    $ {{formatCurrency value}}</p>
+                                                {{/eq}}
+                                                {{#eq id "Change"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    $ {{formatCurrency value}}</p>
+                                                {{/eq}}
+
+                                                {{#eq id "Discounts"}}
+                                                <p
+                                                    style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                                                    $ {{formatCurrency value}}</p>
+                                                {{/eq}}
                                             </td>
                                         </tr>
                                         {{/if}} {{/each}} {{#if value}}
@@ -503,9 +558,6 @@
                                                     Total del pedido</p>
                                                 <hr
                                                     style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
-                                                <p
-                                                    style="font-family: arial; font-size: 14px; font-weight: bold; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    Monto a favor</p>
                                             </td>
                                             <td valign="top" align="right">
                                                 <p
@@ -513,9 +565,6 @@
                                                     $ {{formatCurrency value}}</p>
                                                 <hr
                                                     style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
-                                                <p
-                                                    style="font-family: arial; font-size: 14px; font-weight: bold; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                                                    $ 0.00</p>
                                             </td>
                                         </tr>
                                         {{/if}}
