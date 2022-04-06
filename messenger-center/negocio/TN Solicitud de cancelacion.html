@@ -11,11 +11,9 @@
  * ¡Atención, solicitud de cancelación!
 =================================================
 -->
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,266 +22,223 @@
     <!-- disable auto telephone linking in iOS -->
     <title>{{_accountInfo.TradingName}}</title>
     <style type="text/css">
+      .delivery-group-content {
+        width: 50%;
+      }
+
+      .delivery-group-contents {
+        width: 50%;
+        text-align: right;
+      }
+
+      .mobile-box {
+        display: none !important;
+      }
+
+      @media screen and (max-width:480px) {
         .delivery-group-content {
-            width: 50%;
+          width: 100%;
+          display: block;
+          overflow: hidden;
+          height: 100%;
+        }
+
+        .delivery-group-content div {
+          margin: 15px 0 0 0 !important;
+          min-height: inherit !important;
         }
 
         .delivery-group-contents {
-            width: 50%;
-            text-align: right;
+          width: 100%;
+          text-align: left;
+          display: block;
+        }
+
+        .delivery-group-content-table {
+          width: 100%;
+          display: table-cell;
+        }
+
+        .hide-mobile {
+          display: none;
         }
 
         .mobile-box {
-            display: none !important;
+          display: inline-block !important;
+          padding-right: 10px;
         }
 
-        @media screen and (max-width:480px) {
-            .delivery-group-content {
-                width: 100%;
-                display: block;
-                overflow: hidden;
-                height: 100%;
-            }
-
-            .delivery-group-content div {
-                margin: 15px 0 0 0 !important;
-                min-height: inherit !important;
-            }
-
-            .delivery-group-contents {
-                width: 100%;
-                text-align: left;
-                display: block;
-            }
-
-            .delivery-group-content-table {
-                width: 100%;
-                display: table-cell;
-            }
-
-            .hide-mobile {
-                display: none;
-            }
-
-            .mobile-box {
-                display: inline-block !important;
-                padding-right: 10px;
-            }
-
-            .boxr {
-                float: right;
-            }
-
-            .w-100 {
-                width: 100%;
-            }
+        .boxr {
+          float: right;
         }
+
+        .w-100 {
+          width: 100%;
+        }
+      }
     </style>
-</head>
-
-<body>
+  </head>
+  <body>
     <table style="max-width: 36rem;" width="100%" cellpadding="15" cellspacing="0" border="0" align="center">
-        <!-- Header. Begin -->
-        <thead>
-            <tr>
+      <!-- Header. Begin -->
+      <thead>
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
+              <tr>
                 <td>
-                    <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
-                        <tr>
-                            <td>
-                                <table width="100%" cellpadding="0" cellpadding="0">
-                                    <tr>
-                                        <td width="100%" valign="middle">
-                                            <a href="https://chedrauimx.myvtex.com/" target="_blank"
-                                                rel="noopener noreferrer">
-                                                <img style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;"
-                                                    src="https://chedrauimx.vteximg.com.br/arquivos/chedraui_logo.png" />
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+                  <table width="100%" cellpadding="0" cellpadding="0">
+                    <tr>
+                      <td width="100%" valign="middle">
+                        <a href="https://chedrauimx.myvtex.com/" target="_blank" rel="noopener noreferrer">
+                          <img style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;" src="https://chedrauimx.vteximg.com.br/arquivos/chedraui_logo.png" />
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
-            </tr>
-        </thead>
-        <!-- Header. End -->
-        <!-- Content. End -->
-        <tbody>
-            <!-- Inside Message Client. Begin -->
-            <tr>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </thead>
+      <!-- Header. End -->
+      <!-- Content. End -->
+      <tbody>
+        <!-- Inside Message Client. Begin -->
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
                 <td>
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td>
-                                <table width="100%" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td width="100%" valign="middle">
-                                            <h2
-                                                style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0;">
-                                                Hola, {{accountInfo.Email}}.</h2>
-                                            <br />
-                                            <p
-                                                style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                                                Recibimos la solicitud de cancelación de tu pedido con numero de
-                                                secuencia <strong
-                                                    style="color: #F56D00;">{{transaction.sequence}}</strong>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="100%" valign="middle">
+                        <h2 style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0;"> Hola, {{accountInfo.Email}}.</h2>
+                        <br />
+                        <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Recibimos la solicitud de cancelación de tu pedido con numero de secuencia <strong style="color: #F56D00;">{{transaction.sequence}}</strong>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
-            </tr>
-            <!-- Inside Message Client. End -->
-            <!-- Inside Product. Begin -->
-            <tr>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Inside Message Client. End -->
+        <!-- Inside Product. Begin -->
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
                 <td>
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td>
-                                <table width="100%" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td valign="middle">
-                                            <h2
-                                                style="font-family: arial; font-size: 16px; font-weight: bold; color:#0d47a1; margin: 0; padding: 0; line-height: 18px;">
-                                                Detalle del pedido</h2>
-                                            <br />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                    <table width="100%" cellpadding="15" cellspacing="0"
-                        style="border-radius: 8px; border: solid 1px #dfe3e8;">
-                        <!-- Inside Productos Orders. Begin -->
-                        <tr>
-                            <td>
-                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                    <!-- Titulos Productos. Begin -->
-                                    <tr>
-                                        <td width="60%" height="40px" align="left" valign="middle"
-                                            style="border-bottom: solid 1px #dfe3e8">
-                                            <strong
-                                                style="font-family: arial; font-size: 12px; font-weight: bold; color: #212B36; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Productos</strong>
-                                        </td>
-                                        <td width="15%" height="40px" align="center" valign="middle"
-                                            style="border-bottom: solid 1px #dfe3e8;">
-                                            <strong class="hide-mobile"
-                                                style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Cantidad</strong>
-                                        </td>
-                                        <td width="25%" height="40px" align="right" valign="middle"
-                                            style="border-bottom: solid 1px #ccc;">
-                                            <strong class="hide-mobile"
-                                                style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Subtotal</strong>
-                                        </td>
-                                    </tr>
-                                    <!-- Titulos Productos. End -->
-                                    {{#each items}}
-                                    <!-- Resumen Productos. Begin -->
-                                    <tr>
-                                        <td class="delivery-group-content-table" width="60%" height="70px" align="left"
-                                            valign="middle">
-                                            <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank"
-                                                rel="noopener noreferrer"
-                                                style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{name}}</a>
-                                            <p class="hide-mobile"
-                                                style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                $ {{formatUSDCurrency value}} {{measurementUnit}}</p>
-                                            <p class="mobile-box"
-                                                style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
-                                                $ {{formatUSDCurrency value}} {{measurementUnit}}</p>
-                                            <p class="mobile-box"
-                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
-                                                {{quantity}} {{measurementUnit}}</p>
-                                            <p class="mobile-box boxr"
-                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;">
-                                                $ {{formatUSDCurrency value}}</p>
-                                        </td>
-                                        <td class="hide-mobile" width="15%" height="70px" align="center"
-                                            valign="middle">
-                                            <p
-                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36;">
-                                                {{quantity}} {{measurementUnit}}</p>
-                                        </td>
-                                        <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
-                                            <p
-                                                style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1;">
-                                                $ {{formatUSDCurrency value}}</p>
-                                        </td>
-                                    </tr>
-                                    <!-- Resumen Productos. End -->
-                                    {{/each}}
-                                </table>
-                            </td>
-                        </tr>
-                        <!-- Inside Productos Orders. End -->
-                    </table>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td valign="middle">
+                        <h2 style="font-family: arial; font-size: 16px; font-weight: bold; color:#0d47a1; margin: 0; padding: 0; line-height: 18px;"> Detalle del pedido</h2>
+                        <br />
+                      </td>
+                    </tr>
+                  </table>
                 </td>
-            </tr>
-            <!-- Inside Product. End -->
-            <!-- Inside Messages. Begin -->
-            <tr>
+              </tr>
+            </table>
+            <table width="100%" cellpadding="15" cellspacing="0" style="border-radius: 8px; border: solid 1px #dfe3e8;">
+              <!-- Inside Productos Orders. Begin -->
+              <tr>
                 <td>
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td>
-                                <table width="100%" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td width="100%" valign="middle">
-                                            <p
-                                                style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                                                Proveedor de pago : <strong
-                                                    style="color: #F56D00;">{{payment.acquirer}}</strong><br /> Método
-                                                de pago : <strong
-                                                    style="color: #F56D00;">{{payment.name}}</strong><br /> Monto a
-                                                cancelar : <strong style="color: #F56D00;">$ {{formatCurrency
-                                                    payment.actionValue}}</strong>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <!-- Titulos Productos. Begin -->
+                    <tr>
+                      <td width="60%" height="40px" align="left" valign="middle" style="border-bottom: solid 1px #dfe3e8">
+                        <strong style="font-family: arial; font-size: 12px; font-weight: bold; color: #212B36; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Productos</strong>
+                      </td>
+                      <td width="15%" height="40px" align="center" valign="middle" style="border-bottom: solid 1px #dfe3e8;">
+                        <strong class="hide-mobile" style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Cantidad</strong>
+                      </td>
+                      <td width="25%" height="40px" align="right" valign="middle" style="border-bottom: solid 1px #ccc;">
+                        <strong class="hide-mobile" style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Subtotal</strong>
+                      </td>
+                    </tr>
+                    <!-- Titulos Productos. End -->
+                    {{#each items}}
+                      <!-- Resumen Productos. Begin -->
+                      <tr>
+                        <td class="delivery-group-content-table" width="60%" height="70px" align="left" valign="middle">
+                          <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer" style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{name}}</a>
+                          <p class="hide-mobile" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;"> $ {{formatUSDCurrency value}} {{measurementUnit}}</p>
+                          <p class="mobile-box" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;"> $ {{formatUSDCurrency value}} {{measurementUnit}}</p>
+                          <p class="mobile-box" style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
+                            {{quantity}} {{measurementUnit}}
+                          </p>
+                          <p class="mobile-box boxr" style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;"> $ {{formatUSDCurrency value}}</p>
+                        </td>
+                        <td class="hide-mobile" width="15%" height="70px" align="center" valign="middle">
+                          <p style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36;">
+                            {{quantity}} {{measurementUnit}}
+                          </p>
+                        </td>
+                        <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
+                          <p style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1;"> $ {{formatUSDCurrency value}}</p>
+                        </td>
+                      </tr>
+                      <!-- Resumen Productos. End -->
+                    {{/each}}
+                  </table>
                 </td>
-            </tr>
-            <!-- Inside Messages. End -->
-        </tbody>
-        <!-- Content. Begin -->
-        <!-- Footer. Begin -->
-        <tfoot>
-            <tr>
+              </tr>
+              <!-- Inside Productos Orders. End -->
+            </table>
+          </td>
+        </tr>
+        <!-- Inside Product. End -->
+        <!-- Inside Messages. Begin -->
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
                 <td>
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td>
-                                <table width="100%" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td width="100%" valign="middle" align="center">
-                                            <img style="display: block; width: 143px; max-width: 143px; height: auto; margin: 0 auto 15px;"
-                                                src="https://chedrauimx.vteximg.com.br/arquivos/siempre_linea_logo.png" />
-                                            <p
-                                                style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;">
-                                                Gracias por comprar en nuestra tienda en línea <a
-                                                    style="text-decoration: none; color: #F56D00;"
-                                                    href="https://chedrauimx.myvtex.com/" target="_blank"
-                                                    rel="noopener noreferrer">chedraui.com.mx</a>.
-                                            </p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="100%" valign="middle">
+                        <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Proveedor de pago : <strong style="color: #F56D00;">{{payment.acquirer}}</strong>
+                          <br /> Método de pago : <strong style="color: #F56D00;">{{payment.name}}</strong>
+                          <br /> Monto a cancelar : <strong style="color: #F56D00;">$ {{formatCurrency payment.actionValue}}</strong>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
-            </tr>
-        </tfoot>
-        <!-- Footer. End -->
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Inside Messages. End -->
+      </tbody>
+      <!-- Content. Begin -->
+      <!-- Footer. Begin -->
+      <tfoot>
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="100%" valign="middle" align="center">
+                        <img style="display: block; width: 143px; max-width: 143px; height: auto; margin: 0 auto 15px;" src="https://chedrauimx.vteximg.com.br/arquivos/siempre_linea_logo.png" />
+                        <p style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;"> Gracias por comprar en nuestra tienda en línea <a style="text-decoration: none; color: #F56D00;" href="https://chedrauimx.myvtex.com/" target="_blank" rel="noopener noreferrer">chedraui.com.mx</a>. </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tfoot>
+      <!-- Footer. End -->
     </table>
-</body>
-
+  </body>
 </html>
