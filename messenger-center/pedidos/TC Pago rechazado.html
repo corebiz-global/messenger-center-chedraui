@@ -173,8 +173,11 @@
                           </p>
                         {{/eq}}
                         <!-- PAGO EN TIENDA CHEDRAUI -->
+                        {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                          return string.toString().replace(/chedrauimx/g, '')
+                          });"}}
                         {{#eq paymentData.transactions.0.payments.0.paymentSystem '203'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia ({{sellers.0.id}}-{{sequence}})</strong>
+                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia (#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
                             <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
                             <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
                           </p>

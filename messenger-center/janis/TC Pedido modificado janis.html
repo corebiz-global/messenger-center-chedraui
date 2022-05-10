@@ -147,7 +147,10 @@
                         {{/eq}}
                         <!-- PAGO EN TIENDA CHEDRAUI -->
                         {{#eq paymentData.transactions.0.payments.0.paymentSystem '203'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">{{sellers.0.id}}-{{sequence}}</strong>, <strong>sin embargo no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
+                        {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                          return string.toString().replace(/chedrauimx/g, '')
+                          });"}}
+                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">#{{sellerTransform sellers.0.id}}-{{sequence}}</strong>, <strong>sin embargo no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
                             <br /> Acércate a <strong style="color: #F56D00;">la tienda Chedraui de tu preferencia</strong> antes del {{formatDate creationDate}} para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
                             <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
                           </p>
