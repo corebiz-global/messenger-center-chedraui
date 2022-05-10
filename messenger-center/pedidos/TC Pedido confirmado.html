@@ -210,7 +210,7 @@
                         style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                         Recibimos tu orden de pedido <strong style="color: #F56D00;">
                           {{#each orders}}
-                          {{sequence}}
+                          {{sellers.0.id}}-{{sequence}}
                           {{/each}}
                         </strong><span style="margin-left: -5px;">, sin embargo</span> <strong>no podremos confirmar tu
                           compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado.

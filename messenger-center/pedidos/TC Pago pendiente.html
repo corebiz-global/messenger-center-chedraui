@@ -142,6 +142,18 @@
                             <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
                           </p>
                         {{/eq}}
+                         <!-- MASTERCARD -->
+                         {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
+                         <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                             {{#each orders}}
+                               {{orderId}}
+                             {{/each}}
+                           </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
+                           <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
+                           <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
+                           <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                         </p>
+                       {{/eq}}
                         <!-- PAYPAL -->
                         {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
                           <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
@@ -192,7 +204,7 @@
                         {{/eq}}
                         <!-- PAGO EN TIENDA CHEDRAUI -->
                         {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia ({{sequence}})</strong>
+                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia ({{sellers.0.id}}-{{sequence}})</strong>
                             <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
                             <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
                           </p>
@@ -247,6 +259,12 @@
                         {{/eq}}
                         <!-- VISA -->
                         {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
+                          <p>
+                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
+                          </p>
+                        {{/eq}}
+                        <!-- MASTERCARD -->
+                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
                           <p>
                             <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
                           </p>
