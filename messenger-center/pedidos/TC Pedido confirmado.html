@@ -523,27 +523,33 @@
                           src="https://chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
                         {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
                       </p>
-                      <p class="delivery-group-contents"
+                      {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                        <p class="delivery-group-contents"
                         style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
                         <img
                           style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
                           src="https://chedrauimx.vteximg.com.br/arquivos/assets-calendario-che.png" />
-                        {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
-                        let startDateUtc = string.split('+');
-                        return startDateUtc[0];
-                        });"}}
-                        {{eval "Handlebars.registerHelper('boxendutc', function(string) {
-                        let endDateUtc = string.split('+');
-                        return endDateUtc[0];
-                        });"}}
-                        {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
-                        return _formatDateTime(value, 'dd/MM/yyyy');
-                        });"}}
-                        {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
-                        (boxstartutc
-                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
-                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
-                      </p>
+                          
+                          {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
+                          let startDateUtc = string.split('+');
+                          return startDateUtc[0];
+                          });"}}
+
+                          {{eval "Handlebars.registerHelper('boxendutc', function(string) {
+                          let endDateUtc = string.split('+');
+                          return endDateUtc[0];
+                          });"}}
+
+                          {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
+                          return _formatDateTime(value, 'dd/MM/yyyy');
+                          });"}}
+
+                          {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
+                          (boxstartutc
+                          shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
+                          shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
+                        </p>
+                      {{/compare}}
                     </td>
                   </tr>
                 </table>
@@ -797,29 +803,35 @@
                         <img
                           style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
                           src="https://chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
-                        {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
+                        {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}} 
                       </p>
-                      <p class="delivery-group-contents"
+                      {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                        <p class="delivery-group-contents"
                         style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
                         <img
                           style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
                           src="https://chedrauimx.vteximg.com.br/arquivos/assets-calendario-che.png" />
-                        {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
-                        let startDateUtc = string.split('+');
-                        return startDateUtc[0];
-                        });"}}
-                        {{eval "Handlebars.registerHelper('boxendutc', function(string) {
-                        let endDateUtc = string.split('+');
-                        return endDateUtc[0];
-                        });"}}
-                        {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
-                        return _formatDateTime(value, 'dd/MM/yyyy');
-                        });"}}
-                        {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
-                        (boxstartutc
-                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
-                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
-                      </p>
+                          
+                          {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
+                          let startDateUtc = string.split('+');
+                          return startDateUtc[0];
+                          });"}}
+
+                          {{eval "Handlebars.registerHelper('boxendutc', function(string) {
+                          let endDateUtc = string.split('+');
+                          return endDateUtc[0];
+                          });"}}
+
+                          {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
+                          return _formatDateTime(value, 'dd/MM/yyyy');
+                          });"}}
+
+                          {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
+                          (boxstartutc
+                          shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
+                          shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
+                        </p>
+                      {{/compare}}
                     </td>
                   </tr>
                 </table>
