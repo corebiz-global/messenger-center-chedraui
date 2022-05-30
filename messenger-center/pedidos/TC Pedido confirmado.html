@@ -82,7 +82,7 @@
 </head>
 
 <body>
-  <table style="max-width: 36rem;" width="100%" cellpadding="15" cellspacing="0" border="0" align="center">
+  <table style="max-width: 36rem" width="100%" cellpadding="15" cellspacing="0" border="0" align="center">
     <!-- Header. Begin -->
     <thead>
       <tr>
@@ -95,7 +95,7 @@
                   Confirmación de pedido</p>
               </td>
               <td width="20%" align="center" valign="middle">
-                <a href="https://chedrauimx.myvtex.com/" target="_blank" rel="noopener noreferrer">
+                <a href="https://nuevo.chedraui.com.mx/" target="_blank" rel="noopener noreferrer">
                   <img src="https://chedrauimx.vteximg.com.br/arquivos/chedraui_logo.png"
                     style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;" />
                 </a>
@@ -206,14 +206,11 @@
                       {{/eq}}
                       <!-- PAGO EN TIENDA CHEDRAUI Pre-pago en tiendas Chedraui -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
-                      {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
-                        return string.toString().replace(/chedrauimx/g, '')
-                        });"}}
                       <p
                         style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                         Recibimos tu orden de pedido <strong style="color: #F56D00;">
                           {{#each orders}}
-                          #{{sellerTransform sellers.0.id}}-{{sequence}}
+                          {{orderId}}
                           {{/each}}
                         </strong><span style="margin-left: -5px;">, sin embargo</span> <strong>no podremos confirmar tu
                           compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado.
@@ -265,7 +262,7 @@
                       <!-- AMERICAN EXPRESS -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
                       <p>
-                        <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
@@ -274,7 +271,7 @@
                       <!-- VISA -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
                       <p>
-                        <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
@@ -283,7 +280,7 @@
                       <!-- MASTERCARD   -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
                       <p>
-                        <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
@@ -292,7 +289,7 @@
                       <!-- PAYPAL -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
                       <p>
-                        <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
@@ -301,7 +298,7 @@
                       <!-- VALE -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
                       <p>
-                        <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
@@ -310,7 +307,7 @@
                       <!-- CASH ON DELIVERY -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
                       <p>
-                        <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
@@ -328,7 +325,7 @@
                       <!-- PAGO EN TIENDA CHEDRAUI -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
                       <p>
-                        <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
@@ -337,7 +334,7 @@
                       <!-- PUNTOS BBVA -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
                       <p>
-                        <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
@@ -346,7 +343,7 @@
                       <!-- VALES -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
                       <p>
-                        <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank"
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
@@ -385,12 +382,14 @@
                         <strong
                           style="font-family: arial; display: block; font-size: 12px; font-weight: bold; color: #454F5B7A; line-height: 18px; padding: 0; margin: 0;">Dirección
                           de recolección</strong>
+                        <p
+                          style="font-family: arial; display: block; font-size: 14px; font-weight: 400; color: #212B36; line-height: 18px; padding: 0; margin: 0; text-transform: capitalize;">
+                          {{orders.0.shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}</p>
                         {{/compare}}
                         {{#compare orders.0.shippingData.address.addressType '!=' "pickup"}}
                         <strong
                           style="font-family: arial; display: block; font-size: 12px; font-weight: bold; color: #454F5B7A; line-height: 18px; padding: 0; margin: 0;">Dirección
                           de envío</strong>
-                        {{/compare}}
                         <p
                           style="font-family: arial; display: block; font-size: 14px; font-weight: 400; color: #212B36; line-height: 18px; padding: 0; margin: 0; text-transform: capitalize;">
                           {{orders.0.shippingData.address.street}} {{#if orders.0.shippingData.address.number }}
@@ -403,6 +402,7 @@
                           {{orders.0.shippingData.address.state}}
                           <br /> C.P. {{orders.0.shippingData.address.postalCode}}
                         </p>
+                        {{/compare}}
                         <br />
                         <strong
                           style="font-family: arial; display: block; font-size: 12px; font-weight: bold; color: #454F5B7A; line-height: 18px; padding: 0; margin: 0;">Datos
@@ -426,59 +426,68 @@
                           {{#each orders.0.paymentData.transactions}}
                           {{#each payments}}
                           {{#eq paymentSystem '1'}} Pago con Tarjeta •••• {{lastDigits}}
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           <!-- VISA -->
                           {{#eq paymentSystem '2'}} Pago con Tarjeta •••• {{lastDigits}}
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           <!-- MASTERCARD   -->
                           {{#eq paymentSystem '4'}} Pago con Tarjeta •••• {{lastDigits}}
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           <!-- PAYPAL -->
                           {{#eq paymentSystem '12'}} Pago con <strong>Paypal</strong>
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           <!-- VALE -->
                           {{#eq paymentSystem '16'}} Pago con <strong>Monedero Mi Chedraui</strong>
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           <!-- CASH ON DELIVERY -->
                           {{#eq paymentSystem '201'}} Forma de pago: <strong>Pago contraentrega (al recibir tu
                             pedido)</strong>
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           <!-- PAGO EN TIENDA -->
                           {{#eq paymentSystem '202'}} Forma de pago: <strong>Pre-pago en establecimientos
                             asociados</strong>
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           <!-- PAGO EN TIENDA CHEDRAUI -->
                           {{#eq paymentSystem '203'}} Forma de pago: <strong>Pre-pago en tiendas Chedraui</strong>
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           <!-- PUNTOS BBVA -->
                           {{#eq paymentSystem '501'}} Pago con <strong>con puntos BBVA</strong>
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           <!-- VALES -->
                           {{#eq paymentSystem '502'}} Pago con <strong>Vales de despensa electrónicos</strong>
-                          <strong>$ {{formatCurrency value}}</strong>
+                          <br />
+                          <strong>$ {{formatUSDCurrency value}}</strong>
                           <br />
                           {{/eq}}
                           {{#compare installments '!=' 1}}
-                          <small style="font-style: italic; color: #212B367A;"> ({{installments}}x) <br>
-                          </small>
+                          <small style="font-style: italic; color: #212B367A;"> ({{installments}}x)</small><br />
                           {{/compare}}
                           {{/each}}
                           {{/each}}
@@ -524,31 +533,27 @@
                         {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
                       </p>
                       {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
-                        <p class="delivery-group-contents"
+                      <p class="delivery-group-contents"
                         style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
                         <img
                           style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
                           src="https://chedrauimx.vteximg.com.br/arquivos/assets-calendario-che.png" />
-                          
-                          {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
-                          let startDateUtc = string.split('+');
-                          return startDateUtc[0];
-                          });"}}
-
-                          {{eval "Handlebars.registerHelper('boxendutc', function(string) {
-                          let endDateUtc = string.split('+');
-                          return endDateUtc[0];
-                          });"}}
-
-                          {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
-                          return _formatDateTime(value, 'dd/MM/yyyy');
-                          });"}}
-
-                          {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
-                          (boxstartutc
-                          shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
-                          shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
-                        </p>
+                        {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
+                        let startDateUtc = string.split('+');
+                        return startDateUtc[0];
+                        });"}}
+                        {{eval "Handlebars.registerHelper('boxendutc', function(string) {
+                        let endDateUtc = string.split('+');
+                        return endDateUtc[0];
+                        });"}}
+                        {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
+                        return _formatDateTime(value, 'dd/MM/yyyy');
+                        });"}}
+                        {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
+                        (boxstartutc
+                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
+                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
+                      </p>
                       {{/compare}}
                     </td>
                   </tr>
@@ -597,7 +602,7 @@
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
                     });" }}
                     <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                      <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                      <a href="https://nuevo.chedraui.com.mx/{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
                         style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
                       {{eval "Handlebars.registerHelper('gramos', function (string) {
                       return string.measurementUnit == 'kg' ? (
@@ -712,27 +717,27 @@
                         {{#eq id "Items"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                         {{#eq id "Shipping"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                         {{#eq id "Tax"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                         {{#eq id "Change"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                         {{#eq id "Discounts"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                       </td>
                     </tr>
@@ -748,7 +753,7 @@
                       <td valign="top" align="right">
                         <p
                           style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                       </td>
                     </tr>
                     {{/if}}
@@ -774,7 +779,7 @@
                       <td valign="top" align="right">
                         <p
                           style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
                       </td>
                     </tr>
@@ -803,34 +808,30 @@
                         <img
                           style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
                           src="https://chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
-                        {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}} 
+                        {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
                       </p>
                       {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
-                        <p class="delivery-group-contents"
+                      <p class="delivery-group-contents"
                         style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
                         <img
                           style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
                           src="https://chedrauimx.vteximg.com.br/arquivos/assets-calendario-che.png" />
-                          
-                          {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
-                          let startDateUtc = string.split('+');
-                          return startDateUtc[0];
-                          });"}}
-
-                          {{eval "Handlebars.registerHelper('boxendutc', function(string) {
-                          let endDateUtc = string.split('+');
-                          return endDateUtc[0];
-                          });"}}
-
-                          {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
-                          return _formatDateTime(value, 'dd/MM/yyyy');
-                          });"}}
-
-                          {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
-                          (boxstartutc
-                          shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
-                          shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
-                        </p>
+                        {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
+                        let startDateUtc = string.split('+');
+                        return startDateUtc[0];
+                        });"}}
+                        {{eval "Handlebars.registerHelper('boxendutc', function(string) {
+                        let endDateUtc = string.split('+');
+                        return endDateUtc[0];
+                        });"}}
+                        {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
+                        return _formatDateTime(value, 'dd/MM/yyyy');
+                        });"}}
+                        {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
+                        (boxstartutc
+                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
+                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
+                      </p>
                       {{/compare}}
                     </td>
                   </tr>
@@ -879,7 +880,7 @@
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
                     });" }}
                     <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                      <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                      <a href="https://nuevo.chedraui.com.mx/{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
                         style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
                       {{eval "Handlebars.registerHelper('gramos', function (string) {
                       return string.measurementUnit == 'kg' ? (
@@ -994,27 +995,27 @@
                         {{#eq id "Items"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                         {{#eq id "Shipping"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                         {{#eq id "Tax"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                         {{#eq id "Change"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                         {{#eq id "Discounts"}}
                         <p
                           style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         {{/eq}}
                       </td>
                     </tr>
@@ -1030,7 +1031,7 @@
                       <td valign="top" align="right">
                         <p
                           style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                       </td>
                     </tr>
                     {{/if}}
@@ -1056,7 +1057,7 @@
                       <td valign="top" align="right">
                         <p
                           style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;">
-                          $ {{formatCurrency value}}</p>
+                          $ {{formatUSDCurrency value}}</p>
                         <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
                       </td>
                     </tr>
@@ -1085,7 +1086,7 @@
                         Si ya realizaste el pago de tu pedido y alguno de tus artículos es sustituido o no es surtido,
                         aplicaremos el reembolso conforme al medio de pago que utilizaste, <a
                           style="color: #f56d00; text-decoration: none;"
-                          href="https://chedrauimx.myvtex.com/cambios-y-devoluciones" target="_blank"
+                          href="https://nuevo.chedraui.com.mx/cambios-y-devoluciones" target="_blank"
                           rel="noopener noreferrer">consulta aquí cómo se aplican los reembolsos </span>. </p>
                     </td>
                   </tr>
@@ -1112,7 +1113,7 @@
                         style="font-family: arial; font-size: 12px; font-weight: 400; color: #212B36; text-align: left; line-height: 14px; letter-spacing: -0.15px;">
                         Por tu seguridad, durante la contingencia de COVID 19, no será necesario firmes nada al momento
                         de recibir tus productos, <a style="color: #f56d00; text-decoration: none;"
-                          href="https://chedrauimx.myvtex.com/medidas-frente-al-covid" target="_blank"
+                          href="https://nuevo.chedraui.com.mx/medidas-frente-al-covid" target="_blank"
                           rel="noopener noreferrer">consulta aquí más medidas frente al COVID-19 </span>. </p>
                     </td>
                   </tr>
@@ -1148,16 +1149,16 @@
                   <tr>
                     <td class="delivery-group-content" width="50%" valign="middle" align="left" bgcolor="#FFFFFF"
                       style="border: solid 1px #F0F5FD;">
-                      <a href="https://chedrauimx.myvtex.com/compras-en-linea/entergas-a-domicilio/02" target="_blank"
+                      <a href="https://nuevo.chedraui.com.mx/compras-en-linea/entergas-a-domicilio/02" target="_blank"
                         rel="noopener noreferrer"
-                        style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(//chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo
+                        style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(https://chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo
                         puedo cambiar la hora o día de entrega de mi pedido?</a>
                     </td>
                     <td class="delivery-group-content" width="50%" valign="middle" align="left" bgcolor="#FFFFFF"
                       style="border: solid 1px #F0F5FD;">
-                      <a href="https://chedrauimx.myvtex.com/compras-en-linea/problemas-con-mi-pedido/03"
+                      <a href="https://nuevo.chedraui.com.mx/compras-en-linea/problemas-con-mi-pedido/03"
                         target="_blank" rel="noopener noreferrer"
-                        style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(//chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo
+                        style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(https://chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo
                         puedo cancelar mi pedido?</a>
                     </td>
                   </tr>
@@ -1186,7 +1187,7 @@
                     <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
                       <img style="width: 50px; max-width: 50px; height: auto;"
                         src="https://chedrauimx.vteximg.com.br/arquivos/ayuda.png" />
-                      <a href="https://chedrauimx.myvtex.com/centro-de-ayuda" target="_blank" rel="noopener noreferrer"
+                      <a href="https://nuevo.chedraui.com.mx/centro-de-ayuda" target="_blank" rel="noopener noreferrer"
                         style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;">
                         Visita el Centro de ayuda</a>
                     </td>
@@ -1212,6 +1213,43 @@
         </td>
       </tr>
       <!-- Inside Help Center. End -->
+      <!-- Inside Review. Begin -->
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="border: solid 1px #F0F5FD; border-radius: 8px; background: #F0F5FD; padding: 15px;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="delivery-group-content" width="60%" height="70" valign="middle">
+                      <strong
+                        style="font-family: arial; display: block; font-size: 14px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">Queremos
+                        escucharte
+                      </strong>
+                      <br />
+                      <p
+                        style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 16px; letter-spacing: 0; margin: 0; padding: 0;">
+                        Cuéntanos, ¿Cómo ha sido tu experiencia comprando en nuestra tienda en
+                        línea?
+                      </p>
+                    </td>
+                    <td class="delivery-group-content" width="40%" height="70" valign="middle">
+                      <img
+                        style="display: block; height: auto; margin: 20px auto 10px; padding: 0; width: 140px; max-width: 140px;"
+                        src="https://chedrauimx.vteximg.com.br/arquivos/assets-stars-che.png?v=2" />
+                      <a href="https://omni.chedraui.com.mx/limesurvey/index.php/481344?p={{orders.0.orderId}}&amp;c=web"
+                        target="_blank" rel="noopener noreferrer"
+                        style="font-family: arial; font-size: 14px; font-weight: bold; background: #FBC02D; display: block; text-align: center; color: #212B36; padding: 8px; line-height: 20px; letter-spacing: 0; text-decoration: none; border-radius: 4px; margin: 0;">Califica
+                        tu compra</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Inside Review. End -->
     </tbody>
     <!-- Content. Begin -->
     <!-- Footer. Begin -->
@@ -1229,7 +1267,7 @@
                       <p
                         style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;">
                         Gracias por comprar en nuestra tienda en línea <a style="text-decoration: none; color: #F56D00;"
-                          href="https://chedrauimx.myvtex.com/" target="_blank"
+                          href="https://nuevo.chedraui.com.mx/" target="_blank"
                           rel="noopener noreferrer">chedraui.com.mx</a>. </p>
                     </td>
                   </tr>

@@ -13,873 +13,1147 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- So that mobile webkit will display zoomed in -->
-    <meta name="format-detection" content="telephone=no">
-    <!-- disable auto telephone linking in iOS -->
-    <title>{{_accountInfo.TradingName}}</title>
-    <style type="text/css">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- So that mobile webkit will display zoomed in -->
+  <meta name="format-detection" content="telephone=no">
+  <!-- disable auto telephone linking in iOS -->
+  <title>{{_accountInfo.TradingName}}</title>
+  <style type="text/css">
+    .delivery-group-content {
+      width: 50%;
+    }
+
+    .delivery-group-contents {
+      width: 50%;
+      text-align: right;
+    }
+
+    .mobile-box {
+      display: none !important;
+    }
+
+    @media screen and (max-width:480px) {
       .delivery-group-content {
-        width: 50%;
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .delivery-group-content div {
+        margin: 15px 0 0 0 !important;
+        min-height: inherit !important;
       }
 
       .delivery-group-contents {
-        width: 50%;
-        text-align: right;
+        width: 100%;
+        text-align: left;
+        display: block;
+      }
+
+      .delivery-group-content-table {
+        width: 100%;
+        display: table-cell;
+      }
+
+      .hide-mobile {
+        display: none;
       }
 
       .mobile-box {
-        display: none !important;
+        display: inline-block !important;
+        padding-right: 10px;
       }
 
-      @media screen and (max-width:480px) {
-        .delivery-group-content {
-          width: 100%;
-          display: block;
-          overflow: hidden;
-          height: 100%;
-        }
-
-        .delivery-group-content div {
-          margin: 15px 0 0 0 !important;
-          min-height: inherit !important;
-        }
-
-        .delivery-group-contents {
-          width: 100%;
-          text-align: left;
-          display: block;
-        }
-
-        .delivery-group-content-table {
-          width: 100%;
-          display: table-cell;
-        }
-
-        .hide-mobile {
-          display: none;
-        }
-
-        .mobile-box {
-          display: inline-block !important;
-          padding-right: 10px;
-        }
-
-        .boxr {
-          float: right;
-        }
-
-        .w-100 {
-          width: 100%;
-        }
+      .boxr {
+        float: right;
       }
-    </style>
-  </head>
-  <body>
-    <table style="max-width: 36rem;" width="100%" cellpadding="15" cellspacing="0" border="0" align="center">
-      <thead>
-        <!-- Header. Begin -->
-        <tr>
-          <td>
-            <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
-              <tr>
-                <td width="40%" align="left" valign="middle">
-                  <p style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;"> Pago pendiente</p>
-                </td>
-                <td width="20%" align="center" valign="middle">
-                  <a href="https://chedrauimx.myvtex.com/" target="_blank" rel="noopener noreferrer">
-                    <img style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;" src="https://chedrauimx.vteximg.com.br/arquivos/chedraui_logo.png" />
-                  </a>
-                </td>
-                <td width="40%" align="right" valign="middle">
-                  {{#each orders}}
-                    <p style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;"> Pedido {{orderId}}</p>
+
+      .w-100 {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <table style="max-width: 36rem;" width="100%" cellpadding="15" cellspacing="0" border="0" align="center">
+    <thead>
+      <!-- Header. Begin -->
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
+            <tr>
+              <td width="40%" align="left" valign="middle">
+                <p
+                  style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
+                  Pago pendiente</p>
+              </td>
+              <td width="20%" align="center" valign="middle">
+                <a href="https://nuevo.chedraui.com.mx/" target="_blank" rel="noopener noreferrer">
+                  <img style="display: block; width: 64px; max-width: 64px; height: auto; margin: 0 auto 15px;"
+                    src="https://chedrauimx.vteximg.com.br/arquivos/chedraui_logo.png" />
+                </a>
+              </td>
+              <td width="40%" align="right" valign="middle">
+                {{#each orders}}
+                <p
+                  style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
+                  Pedido {{orderId}}</p>
+                {{/each}}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </thead>
+    <!-- Header. End -->
+    <!-- Content. Begin -->
+    <tbody>
+      <!-- Inside Message Client. Begin -->
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <h2
+                        style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0; text-transform:capitalize;">
+                        Hola, {{orders.0.clientProfileData.firstName}}.</h2>
+                      <br />
+                      <!-- AMERICAN EXPRESS -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                          {{#each orders}}
+                          {{orderId}}
+                          {{/each}}
+                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                          de pago</strong> a través del medio seleccionado. <br />
+                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
+                          asociados</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                      </p>
+                      {{/eq}}
+                      <!-- VISA -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                          {{#each orders}}
+                          {{orderId}}
+                          {{/each}}
+                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                          de pago</strong> a través del medio seleccionado. <br />
+                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
+                          asociados</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                      </p>
+                      {{/eq}}
+                      <!-- MASTERCARD -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                          {{#each orders}}
+                          {{orderId}}
+                          {{/each}}
+                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                          de pago</strong> a través del medio seleccionado. <br />
+                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
+                          asociados</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                      </p>
+                      {{/eq}}
+                      <!-- PAYPAL -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                          {{#each orders}}
+                          {{orderId}}
+                          {{/each}}
+                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                          de pago</strong> a través del medio seleccionado. <br />
+                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
+                          asociados</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                      </p>
+                      {{/eq}}
+                      <!-- VALE -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                          {{#each orders}}
+                          {{orderId}}
+                          {{/each}}
+                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                          de pago</strong> a través del medio seleccionado. <br />
+                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
+                          asociados</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                      </p>
+                      {{/eq}}
+                      <!-- CASH ON DELIVERY -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                          {{#each orders}}
+                          {{orderId}}
+                          {{/each}}
+                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                          de pago</strong> a través del medio seleccionado. <br />
+                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
+                          asociados</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                      </p>
+                      {{/eq}}
+                      <!-- PAGO EN TIENDA -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '202'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                          {{#each orders}}
+                          {{orderId}}
+                          {{/each}}
+                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                          de pago</strong> a través del medio seleccionado. <br />
+                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
+                          asociados</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                      </p>
+                      {{/eq}}
+                      <!-- PAGO EN TIENDA CHEDRAUI -->
+                      {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                      return string.toString().replace(/chedrauimx/g, '')
+                      });"}}
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia
+                          (#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
+                      </p>
+                      {{/eq}}
+                      <!-- PUNTOS BBVA -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                          {{#each orders}}
+                          {{orderId}}
+                          {{/each}}
+                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                          de pago</strong> a través del medio seleccionado. <br />
+                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
+                          asociados</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                      </p>
+                      {{/eq}}
+                      <!-- VALES -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
+                      <p
+                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                          {{#each orders}}
+                          {{orderId}}
+                          {{/each}}
+                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                          de pago</strong> a través del medio seleccionado. <br />
+                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
+                          asociados</strong>
+                        <strong>antes del {{formatDateTime
+                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
+                        pedido a tiempo para la entrega agendada. <br />
+                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                      </p>
+                      {{/eq}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Inside Message Client. End -->
+      <!-- Inside Payment Methods. Begin -->
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="100%" valign="middle" align="center">
+                      <!-- AMERICAN EXPRESS -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                      <!-- VISA -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                      <!-- MASTERCARD -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                      <!-- PAYPAL -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                      <!-- VALE -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                      <!-- CASH ON DELIVERY -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                      <!-- PAGO EN TIENDA -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '202'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                      <!-- PAGO EN TIENDA CHEDRAUI -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                      <!-- PUNTOS BBVA -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                      <!-- VALES -->
+                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
+                      <p>
+                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
+                          rel="noopener noreferrer"
+                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
+                          Dar seguimiento a mi pedido </a>
+                      </p>
+                      {{/eq}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Inside Payment Methods. End -->
+      <!-- Inside Product. Begin -->
+      <!-- Inside Product. Begin -->
+      {{eval "Handlebars.registerHelper('indexPaquete', function(string) {
+      return string + 1;
+      });"}}
+      {{#compare orders.length "!=" 1}}
+      {{#each orders}}
+      <tr>
+        <td style="margin: 0;padding-bottom: 0;">
+          <p
+            style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; text-align: left; line-height: 14px;">
+            Paquete {{indexPaquete @index}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table width="100%" cellpadding="15" cellspacing="0" style="background: #F0F5FD;">
+            <tr>
+              <td>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td valign="middle">
+                      <p class="delivery-group-content"
+                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float: left; margin: 0; letter-spacing: -1px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                        <img
+                          style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
+                          src="//chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
+                        {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
+                      </p>
+                      {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                      <p class="delivery-group-contents"
+                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
+                        <img
+                          style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
+                          src="//chedrauimx.vteximg.com.br/arquivos/assets-calendario-che.png" />
+                        {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
+                        let startDateUtc = string.split('+');
+                        return startDateUtc[0];
+                        });"}}
+                        {{eval "Handlebars.registerHelper('boxendutc', function(string) {
+                        let endDateUtc = string.split('+');
+                        return endDateUtc[0];
+                        });"}}
+                        {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
+                        return _formatDateTime(value, 'dd/MM/yyyy');
+                        });"}}
+                        {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
+                        (boxstartutc
+                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
+                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
+                      </p>
+                      {{/compare}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <table width="100%" cellpadding="15" cellspacing="0"
+            style="border-radius: 0 0 8px 8px; border-left: solid 1px #dfe3e8; border-right: solid 1px #dfe3e8; border-bottom: solid 1px #dfe3e8;">
+            <!-- Inside Productos Orders. Begin -->
+            <tr>
+              <td>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <!-- Titulos Productos. Begin -->
+                  <tr>
+                    <td width="20%" height="40px" align="left" valign="middle" style="border-bottom: solid 1px #dfe3e8">
+                      <strong
+                        style="font-family: arial; font-size: 12px; font-weight: bold; color: #212B36; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Productos</strong>
+                    </td>
+                    <td width="40%" height="40px" valign="middle" style="border-bottom: solid 1px #dfe3e8;">&nbsp; </td>
+                    <td width="15%" height="40px" align="center" valign="middle"
+                      style="border-bottom: solid 1px #dfe3e8;">
+                      <strong class="hide-mobile"
+                        style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Cantidad</strong>
+                    </td>
+                    <td width="25%" height="40px" align="right" valign="middle" style="border-bottom: solid 1px #ccc;">
+                      <strong class="hide-mobile"
+                        style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Subtotal</strong>
+                    </td>
+                  </tr>
+                  <!-- Titulos Productos. End -->
+                  {{#each items}}
+                  <!-- Resumen Productos. Begin -->
+                  <tr>
+                    <td width="10%" height="70px" align="left" valign="middle">
+                      <img style="width: 60px; max-width: 60px; display: block; height: auto;" src="{{imageUrl}}"
+                        alt="{{name}} | Chedraui">
+                    </td>
+                    {{eval "Handlebars.registerHelper('kilostotal', function (string) {
+                    return string.measurementUnit == 'kg' ? (
+                    ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier *
+                    string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
+                    ) : string.unitMultiplier + ' '+ string.measurementUnit
+                    });" }}
+                    {{eval "Handlebars.registerHelper('pza', function (string) {
+                    return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
+                    });" }}
+                    <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
+                      <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                        style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
+                      {{eval "Handlebars.registerHelper('gramos', function (string) {
+                      return string.measurementUnit == 'kg' ? (
+                      ((((string.unitMultiplier * 1000) * 1) % 1000) == 0) ? (string.unitMultiplier) + ' kg' :
+                      (string.unitMultiplier * 1000) + ' g'
+                      ) : string.unitMultiplier + ' '+ string.measurementUnit
+                      });" }}
+                      <p class="hide-mobile"
+                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
+                        $ {{formatUSDCurrency priceDefinition.calculatedSellingPrice}} - {{gramos .}}</p>
+                      <p class="mobile-box"
+                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
+                        $ {{formatUSDCurrency priceDefinition.calculatedSellingPrice}} - {{gramos .}}</p>
+                      <p class="mobile-box"
+                        style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
+                        {{kilostotal .}}
+                        <small
+                          style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                          {{pza .}}
+                        </small>
+                      </p>
+                      <p class="mobile-box boxr"
+                        style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;">
+                        $ {{formatUSDCurrency priceDefinition.total}}</p>
+                    </td>
+                    <td class="hide-mobile" width="15%" height="70px" align="center" valign="middle">
+                      <p
+                        style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin-bottom:0;">
+                        {{kilostotal .}}
+                      </p>
+                      <p
+                        style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                        {{pza .}}
+                      </p>
+                    </td>
+                    <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
+                      <p
+                        style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1;">
+                        $ {{formatUSDCurrency priceDefinition.total}}</p>
+                    </td>
+                  </tr>
+                  <!-- Resumen Productos. End -->
                   {{/each}}
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </thead>
-      <!-- Header. End -->
-      <!-- Content. Begin -->
-      <tbody>
-        <!-- Inside Message Client. Begin -->
-        <tr>
-          <td>
-            <table width="100%" cellpadding="0" cellspacing="0">
-              <tr>
-                <td>
-                  <table width="100%" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td width="100%" valign="middle">
-                        <h2 style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0; text-transform:capitalize;"> Hola, {{orders.0.clientProfileData.firstName}}.</h2>
-                        <br />
-                        <!-- AMERICAN EXPRESS -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                              {{#each orders}}
-                                {{orderId}}
-                              {{/each}}
-                            </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
-                            <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                            <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                            <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                          </p>
-                        {{/eq}}
-                        <!-- VISA -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                              {{#each orders}}
-                                {{orderId}}
-                              {{/each}}
-                            </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
-                            <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                            <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                            <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                          </p>
-                        {{/eq}}
-                         <!-- MASTERCARD -->
-                         {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
-                         <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                             {{#each orders}}
-                               {{orderId}}
-                             {{/each}}
-                           </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
-                           <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                           <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                           <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                         </p>
-                       {{/eq}}
-                        <!-- PAYPAL -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                              {{#each orders}}
-                                {{orderId}}
-                              {{/each}}
-                            </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
-                            <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                            <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                            <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                          </p>
-                        {{/eq}}
-                        <!-- VALE -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                              {{#each orders}}
-                                {{orderId}}
-                              {{/each}}
-                            </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
-                            <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                            <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                            <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                          </p>
-                        {{/eq}}
-                        <!-- CASH ON DELIVERY -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                              {{#each orders}}
-                                {{orderId}}
-                              {{/each}}
-                            </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
-                            <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                            <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                            <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                          </p>
-                        {{/eq}}
-                        <!-- PAGO EN TIENDA -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '202'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                              {{#each orders}}
-                                {{orderId}}
-                              {{/each}}
-                            </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
-                            <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                            <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                            <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                          </p>
-                        {{/eq}}
-                        <!-- PAGO EN TIENDA CHEDRAUI -->
-                        {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
-                          return string.toString().replace(/chedrauimx/g, '')
-                          });"}}
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia (#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
-                            <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                            <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
-                          </p>
-                        {{/eq}}
-                        <!-- PUNTOS BBVA -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                              {{#each orders}}
-                                {{orderId}}
-                              {{/each}}
-                            </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
-                            <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                            <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                            <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                          </p>
-                        {{/eq}}
-                        <!-- VALES -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
-                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;"> Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                              {{#each orders}}
-                                {{orderId}}
-                              {{/each}}
-                            </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
-                            <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                            <strong>antes del {{formatDateTime shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                            <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                          </p>
-                        {{/eq}}
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <!-- Inside Message Client. End -->
-        <!-- Inside Payment Methods. Begin -->
-        <tr>
-          <td>
-            <table width="100%" cellpadding="0" cellspacing="0">
-              <tr>
-                <td>
-                  <table width="100%" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td width="100%" valign="middle" align="center">
-                        <!-- AMERICAN EXPRESS -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                        <!-- VISA -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                        <!-- MASTERCARD -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                        <!-- PAYPAL -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                        <!-- VALE -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                        <!-- CASH ON DELIVERY -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                        <!-- PAGO EN TIENDA -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '202'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                        <!-- PAGO EN TIENDA CHEDRAUI -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                        <!-- PUNTOS BBVA -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                        <!-- VALES -->
-                        {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
-                          <p>
-                            <a href="https://chedrauimx.myvtex.com/account#/orders" target="_blank" rel="noopener noreferrer" style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;"> Dar seguimiento a mi pedido </a>
-                          </p>
-                        {{/eq}}
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <!-- Inside Payment Methods. End -->
-        <!-- Inside Product. Begin -->
-        <!-- Inside Product. Begin -->
-        {{eval "Handlebars.registerHelper('indexPaquete', function(string) {
-                return string + 1;
-            });"}}
-        {{#compare orders.length "!=" 1}}
-          {{#each orders}}
-            <tr>
-              <td style="margin: 0;padding-bottom: 0;">
-                <p style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; text-align: left; line-height: 14px;"> Paquete {{indexPaquete @index}}</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <table width="100%" cellpadding="15" cellspacing="0" style="background: #F0F5FD;">
-                  <tr>
-                    <td>
-                      <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td valign="middle">
-                            <p class="delivery-group-content" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float: left; margin: 0; letter-spacing: -1px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                              <img style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;" src="//chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
-                              {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
-                            </p>
-                            {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
-                            <p class="delivery-group-contents" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
-                              <img style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;" src="//chedrauimx.vteximg.com.br/arquivos/assets-calendario-che.png" />
-                              {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
-                                                let startDateUtc = string.split('+');
-                                                return startDateUtc[0];
-                                                });"}}
-                              {{eval "Handlebars.registerHelper('boxendutc', function(string) {
-                                                let endDateUtc = string.split('+');
-                                                return endDateUtc[0];
-                                                });"}}
-                              {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
-                                                return _formatDateTime(value, 'dd/MM/yyyy');
-                                                });"}}
-                              {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime (boxstartutc
-                                                shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
-                                                shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
-                            </p>
-                            {{/compare}}
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-                <table width="100%" cellpadding="15" cellspacing="0" style="border-radius: 0 0 8px 8px; border-left: solid 1px #dfe3e8; border-right: solid 1px #dfe3e8; border-bottom: solid 1px #dfe3e8;">
-                  <!-- Inside Productos Orders. Begin -->
-                  <tr>
-                    <td>
-                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                        <!-- Titulos Productos. Begin -->
-                        <tr>
-                          <td width="20%" height="40px" align="left" valign="middle" style="border-bottom: solid 1px #dfe3e8">
-                            <strong style="font-family: arial; font-size: 12px; font-weight: bold; color: #212B36; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Productos</strong>
-                          </td>
-                          <td width="40%" height="40px" valign="middle" style="border-bottom: solid 1px #dfe3e8;">&nbsp; </td>
-                          <td width="15%" height="40px" align="center" valign="middle" style="border-bottom: solid 1px #dfe3e8;">
-                            <strong class="hide-mobile" style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Cantidad</strong>
-                          </td>
-                          <td width="25%" height="40px" align="right" valign="middle" style="border-bottom: solid 1px #ccc;">
-                            <strong class="hide-mobile" style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Subtotal</strong>
-                          </td>
-                        </tr>
-                        <!-- Titulos Productos. End -->
-                        {{#each items}}
-                          <!-- Resumen Productos. Begin -->
-                          <tr>
-                            <td width="10%" height="70px" align="left" valign="middle">
-                              <img style="width: 60px; max-width: 60px; display: block; height: auto;" src="{{imageUrl}}" alt="{{name}} | Chedraui">
-                            </td>
-                            {{eval "Handlebars.registerHelper('kilostotal', function (string) {
-                                            return string.measurementUnit == 'kg' ? (
-                                                ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier * string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
-                                            ) : string.unitMultiplier + ' '+ string.measurementUnit
-                                        });" }}
-                            {{eval "Handlebars.registerHelper('pza', function (string) {                                    
-                                            return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
-                                        });" }}
-                            <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                              <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer" style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
-                              {{eval "Handlebars.registerHelper('gramos', function (string) {
-                                                    return string.measurementUnit == 'kg' ? (
-                                                        ((((string.unitMultiplier * 1000) * 1) % 1000) == 0) ? (string.unitMultiplier) + ' kg' : (string.unitMultiplier * 1000) + ' g'
-                                                    ) : string.unitMultiplier + ' '+ string.measurementUnit
-                                                });" }}
-                              <p class="hide-mobile" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;"> $ {{formatUSDCurrency priceDefinition.calculatedSellingPrice}} - {{gramos .}}</p>
-                              <p class="mobile-box" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;"> $ {{formatUSDCurrency priceDefinition.calculatedSellingPrice}} - {{gramos .}}</p>
-                              <p class="mobile-box" style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
-                                {{kilostotal .}}
-                                <small style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
-                                  {{pza .}}
-                                </small>
-                              </p>
-                              <p class="mobile-box boxr" style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;"> $ {{formatUSDCurrency priceDefinition.total}}</p>
-                            </td>
-                            <td class="hide-mobile" width="15%" height="70px" align="center" valign="middle">
-                              <p style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin-bottom:0;">
-                                {{kilostotal .}}
-                              </p>
-                              <p style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
-                                {{pza .}}
-                              </p>
-                            </td>
-                            <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
-                              <p style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1;"> $ {{formatUSDCurrency priceDefinition.total}}</p>
-                            </td>
-                          </tr>
-                          <!-- Resumen Productos. End -->
-                        {{/each}}
-                      </table>
-                    </td>
-                  </tr>
-                  <!-- Inside Productos Orders. End -->
                 </table>
               </td>
             </tr>
-            <!-- Inside Product. End -->
-            <!-- Inside Payment Summary. Begin -->
+            <!-- Inside Productos Orders. End -->
+          </table>
+        </td>
+      </tr>
+      <!-- Inside Product. End -->
+      <!-- Inside Payment Summary. Begin -->
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td>
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
-                    <td>
-                      <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="50%" align="left" valign="middle">
-                            <h2 style="font-family: arial; font-size: 16px; font-weight: bold; color:#0d47a1; margin: 0; padding: 0; line-height: 18px;"> Información de pago</h2>
-                          </td>
-                          <td width="50%" align="right" valign="middle">
-                            <p style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;"> Impuestos incluidos</p>
-                          </td>
-                        </tr>
-                      </table>
+                    <td width="50%" align="left" valign="middle">
+                      <h2
+                        style="font-family: arial; font-size: 16px; font-weight: bold; color:#0d47a1; margin: 0; padding: 0; line-height: 18px;">
+                        Información de pago</h2>
                     </td>
-                  </tr>
-                </table>
-                <table width="100%" cellpadding="15" cellspacing="0" style="border: solid 1px #dfe3e8; border-radius: 8px 8px 0 0; margin: 15px 0 0 0;">
-                  <tr>
-                    <td>
-                      <table class="w-100" width="60%" cellspacing="8" cellpadding="0" align="right">
-                        <tbody>
-                          {{#each totals}}
-                            {{#if value}}
-                              <tr>
-                                <td valign="middle" align="left">
-                                  {{#eq id "Items"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Subtotal </p>
-                                  {{/eq}}
-                                  {{#eq id "Shipping"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Costo de envío</p>
-                                  {{/eq}}
-                                  {{#eq id "Discounts"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Con Chedraui ahorras</p>
-                                  {{/eq}}
-                                  {{#eq id "Tax"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Taxas</p>
-                                  {{/eq}}
-                                  {{#eq id "Change"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Modificaciones</p>
-                                  {{/eq}}
-                                </td>
-                                <td valign="top" align="right">
-                                  {{#eq id "Items"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                  {{#eq id "Shipping"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                  {{#eq id "Tax"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                  {{#eq id "Change"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                  {{#eq id "Discounts"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                </td>
-                              </tr>
-                            {{/if}}
-                          {{/each}}
-                          {{#if value}}
-                            <tr>
-                              <td valign="top" align="left">
-                                <p style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;"> Total pagado</p>
-                              </td>
-                              <td valign="top" align="right">
-                                <p style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                              </td>
-                            </tr>
-                          {{/if}}
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-                <table width="100%" cellpadding="15" cellspacing="0" style="background: #F0F5FD; border: solid 1px #F0F5FD; border-radius: 0px;">
-                  <tr>
-                    <td>
-                      <table class="w-100" width="60%" cellspacing="0" cellpadding="0" align="right">
-                        <tbody>
-                          {{#if value}}
-                            <tr>
-                              <td valign="top" align="left">
-                                <p style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;"> Total del pedido</p>
-                                <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
-                              </td>
-                              <td valign="top" align="right">
-                                <p style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
-                              </td>
-                            </tr>
-                          {{/if}}
-                        </tbody>
-                      </table>
+                    <td width="50%" align="right" valign="middle">
+                      <p
+                        style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
+                        Impuestos incluidos</p>
                     </td>
                   </tr>
                 </table>
               </td>
             </tr>
-          {{/each}}
-        {{/compare}}
-        {{#compare orders.length "==" 1}}
-          {{#each orders}}
+          </table>
+          <table width="100%" cellpadding="15" cellspacing="0"
+            style="border: solid 1px #dfe3e8; border-radius: 8px 8px 0 0; margin: 15px 0 0 0;">
             <tr>
               <td>
-                <table width="100%" cellpadding="15" cellspacing="0" style="background: #F0F5FD;">
-                  <tr>
-                    <td>
-                      <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td valign="middle">
-                            <p class="delivery-group-content" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float: left; margin: 0; letter-spacing: -1px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                              <img style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;" src="//chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
-                              {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
-                            </p>
-                            {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
-                            <p class="delivery-group-contents" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
-                              <img style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;" src="//chedrauimx.vteximg.com.br/arquivos/assets-calendario-che.png" />
-                              {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
-                                                let startDateUtc = string.split('+');
-                                                return startDateUtc[0];
-                                                });"}}
-                              {{eval "Handlebars.registerHelper('boxendutc', function(string) {
-                                                let endDateUtc = string.split('+');
-                                                return endDateUtc[0];
-                                                });"}}
-                              {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
-                                                return _formatDateTime(value, 'dd/MM/yyyy');
-                                                });"}}
-                              {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime (boxstartutc
-                                                shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
-                                                shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
-                            </p>
-                            {{/compare}}
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-                <table width="100%" cellpadding="15" cellspacing="0" style="border-radius: 0 0 8px 8px; border-left: solid 1px #dfe3e8; border-right: solid 1px #dfe3e8; border-bottom: solid 1px #dfe3e8;">
-                  <!-- Inside Productos Orders. Begin -->
-                  <tr>
-                    <td>
-                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                        <!-- Titulos Productos. Begin -->
-                        <tr>
-                          <td width="20%" height="40px" align="left" valign="middle" style="border-bottom: solid 1px #dfe3e8">
-                            <strong style="font-family: arial; font-size: 12px; font-weight: bold; color: #212B36; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Productos</strong>
-                          </td>
-                          <td width="40%" height="40px" valign="middle" style="border-bottom: solid 1px #dfe3e8;">&nbsp; </td>
-                          <td width="15%" height="40px" align="center" valign="middle" style="border-bottom: solid 1px #dfe3e8;">
-                            <strong class="hide-mobile" style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Cantidad</strong>
-                          </td>
-                          <td width="25%" height="40px" align="right" valign="middle" style="border-bottom: solid 1px #ccc;">
-                            <strong class="hide-mobile" style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Subtotal</strong>
-                          </td>
-                        </tr>
-                        <!-- Titulos Productos. End -->
-                        {{#each items}}
-                          <!-- Resumen Productos. Begin -->
-                          <tr>
-                            <td width="10%" height="70px" align="left" valign="middle">
-                              <img style="width: 60px; max-width: 60px; display: block; height: auto;" src="{{imageUrl}}" alt="{{name}} | Chedraui">
-                            </td>
-                            {{eval "Handlebars.registerHelper('kilostotal', function (string) {
-                                            return string.measurementUnit == 'kg' ? (
-                                                ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier * string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
-                                            ) : string.unitMultiplier + ' '+ string.measurementUnit
-                                        });" }}
-                            {{eval "Handlebars.registerHelper('pza', function (string) {                                    
-                                            return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
-                                        });" }}
-                            <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                              <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer" style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
-                              {{eval "Handlebars.registerHelper('gramos', function (string) {
-                                                    return string.measurementUnit == 'kg' ? (
-                                                        ((((string.unitMultiplier * 1000) * 1) % 1000) == 0) ? (string.unitMultiplier) + ' kg' : (string.unitMultiplier * 1000) + ' g'
-                                                    ) : string.unitMultiplier + ' '+ string.measurementUnit
-                                                });" }}
-                              <p class="hide-mobile" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;"> $ {{formatUSDCurrency price}} - {{gramos .}}</p>
-                              <p class="mobile-box" style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;"> $ {{formatUSDCurrency price}} - {{gramos .}}</p>
-                              <p class="mobile-box" style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
-                                {{kilostotal .}}
-                                <small style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
-                                  {{pza .}}
-                                </small>
-                              </p>
-                              <p class="mobile-box boxr" style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;"> $ {{formatUSDCurrency priceDefinition.total}}</p>
-                            </td>
-                            <td class="hide-mobile" width="15%" height="70px" align="center" valign="middle">
-                              <p style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin-bottom:0;">
-                                {{kilostotal .}}
-                              </p>
-                              <p style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
-                                {{pza .}}
-                              </p>
-                            </td>
-                            <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
-                              <p style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1;"> $ {{formatUSDCurrency priceDefinition.total}}</p>
-                            </td>
-                          </tr>
-                          <!-- Resumen Productos. End -->
-                        {{/each}}
-                      </table>
-                    </td>
-                  </tr>
-                  <!-- Inside Productos Orders. End -->
+                <table class="w-100" width="60%" cellspacing="8" cellpadding="0" align="right">
+                  <tbody>
+                    {{#each totals}}
+                    {{#if value}}
+                    <tr>
+                      <td valign="middle" align="left">
+                        {{#eq id "Items"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Subtotal </p>
+                        {{/eq}}
+                        {{#eq id "Shipping"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Costo de envío</p>
+                        {{/eq}}
+                        {{#eq id "Discounts"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Con Chedraui ahorras</p>
+                        {{/eq}}
+                        {{#eq id "Tax"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Taxas</p>
+                        {{/eq}}
+                        {{#eq id "Change"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Modificaciones</p>
+                        {{/eq}}
+                      </td>
+                      <td valign="top" align="right">
+                        {{#eq id "Items"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
+                        {{#eq id "Shipping"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
+                        {{#eq id "Tax"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
+                        {{#eq id "Change"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
+                        {{#eq id "Discounts"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
+                      </td>
+                    </tr>
+                    {{/if}}
+                    {{/each}}
+                    {{#if value}}
+                    <tr>
+                      <td valign="top" align="left">
+                        <p
+                          style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Total pagado</p>
+                      </td>
+                      <td valign="top" align="right">
+                        <p
+                          style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                      </td>
+                    </tr>
+                    {{/if}}
+                  </tbody>
                 </table>
               </td>
             </tr>
-            <!-- Inside Product. End -->
-            <!-- Inside Payment Summary. Begin -->
+          </table>
+          <table width="100%" cellpadding="15" cellspacing="0"
+            style="background: #F0F5FD; border: solid 1px #F0F5FD; border-radius: 0px;">
+            <tr>
+              <td>
+                <table class="w-100" width="60%" cellspacing="0" cellpadding="0" align="right">
+                  <tbody>
+                    {{#if value}}
+                    <tr>
+                      <td valign="top" align="left">
+                        <p
+                          style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;">
+                          Total del pedido</p>
+                        <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
+                      </td>
+                      <td valign="top" align="right">
+                        <p
+                          style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
+                      </td>
+                    </tr>
+                    {{/if}}
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      {{/each}}
+      {{/compare}}
+      {{#compare orders.length "==" 1}}
+      {{#each orders}}
+      <tr>
+        <td>
+          <table width="100%" cellpadding="15" cellspacing="0" style="background: #F0F5FD;">
             <tr>
               <td>
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
-                    <td>
-                      <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="50%" align="left" valign="middle">
-                            <h2 style="font-family: arial; font-size: 16px; font-weight: bold; color:#0d47a1; margin: 0; padding: 0; line-height: 18px;"> Información de pago</h2>
-                          </td>
-                          <td width="50%" align="right" valign="middle">
-                            <p style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;"> Impuestos incluidos</p>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-                <table width="100%" cellpadding="15" cellspacing="0" style="border: solid 1px #dfe3e8; border-radius: 8px 8px 0 0; margin: 15px 0 0 0;">
-                  <tr>
-                    <td>
-                      <table class="w-100" width="60%" cellspacing="8" cellpadding="0" align="right">
-                        <tbody>
-                          {{#each totals}}
-                            {{#if value}}
-                              <tr>
-                                <td valign="middle" align="left">
-                                  {{#eq id "Items"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Subtotal </p>
-                                  {{/eq}}
-                                  {{#eq id "Shipping"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Costo de envío</p>
-                                  {{/eq}}
-                                  {{#eq id "Discounts"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Con Chedraui ahorras</p>
-                                  {{/eq}}
-                                  {{#eq id "Tax"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Taxas</p>
-                                  {{/eq}}
-                                  {{#eq id "Change"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> Modificaciones</p>
-                                  {{/eq}}
-                                </td>
-                                <td valign="top" align="right">
-                                  {{#eq id "Items"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                  {{#eq id "Shipping"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                  {{#eq id "Tax"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                  {{#eq id "Change"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                  {{#eq id "Discounts"}}
-                                    <p style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                  {{/eq}}
-                                </td>
-                              </tr>
-                            {{/if}}
-                          {{/each}}
-                          {{#if value}}
-                            <tr>
-                              <td valign="top" align="left">
-                                <p style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;"> Total Pagado</p>
-                              </td>
-                              <td valign="top" align="right">
-                                <p style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                              </td>
-                            </tr>
-                          {{/if}}
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-                <table width="100%" cellpadding="15" cellspacing="0" style="background: #F0F5FD; border: solid 1px #F0F5FD; border-radius: 0px;">
-                  <tr>
-                    <td>
-                      <table class="w-100" width="60%" cellspacing="0" cellpadding="0" align="right">
-                        <tbody>
-                          {{#if value}}
-                            <tr>
-                              <td valign="top" align="left">
-                                <p style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;"> Total del pedido</p>
-                                <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
-                              </td>
-                              <td valign="top" align="right">
-                                <p style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;"> $ {{formatCurrency value}}</p>
-                                <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
-                              </td>
-                            </tr>
-                          {{/if}}
-                        </tbody>
-                      </table>
+                    <td valign="middle">
+                      <p class="delivery-group-content"
+                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float: left; margin: 0; letter-spacing: -1px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                        <img
+                          style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
+                          src="//chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
+                        {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
+                      </p>
+                      {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                      <p class="delivery-group-contents"
+                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
+                        <img
+                          style="display: inline-block; vertical-align: middle; width: 20px; max-width: 20px; height: auto; margin: auto;"
+                          src="//chedrauimx.vteximg.com.br/arquivos/assets-calendario-che.png" />
+                        {{eval "Handlebars.registerHelper('boxstartutc', function(string) {
+                        let startDateUtc = string.split('+');
+                        return startDateUtc[0];
+                        });"}}
+                        {{eval "Handlebars.registerHelper('boxendutc', function(string) {
+                        let endDateUtc = string.split('+');
+                        return endDateUtc[0];
+                        });"}}
+                        {{eval "Handlebars.registerHelper('formatUSDateCol', function(value) {
+                        return _formatDateTime(value, 'dd/MM/yyyy');
+                        });"}}
+                        {{formatUSDateCol shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}} de {{formatTime
+                        (boxstartutc
+                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.startDateUtc)}} a {{formatTime (boxendutc
+                        shippingData.logisticsInfo.0.slas.0.deliveryWindow.endDateUtc)}} h
+                      </p>
+                      {{/compare}}
                     </td>
                   </tr>
                 </table>
               </td>
             </tr>
-          {{/each}}
-        {{/compare}}
-        <!-- Inside Payment Summary. Begin -->
-        <!-- Inside COVID19. Begin -->
-        <tr>
-          <td>
-            <table width="100%" cellpadding="0" cellspacing="0">
-              <tr>
-                <td>
-                  <table width="100%" cellpadding="0" cellspacing="0">
+          </table>
+          <table width="100%" cellpadding="15" cellspacing="0"
+            style="border-radius: 0 0 8px 8px; border-left: solid 1px #dfe3e8; border-right: solid 1px #dfe3e8; border-bottom: solid 1px #dfe3e8;">
+            <!-- Inside Productos Orders. Begin -->
+            <tr>
+              <td>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <!-- Titulos Productos. Begin -->
+                  <tr>
+                    <td width="20%" height="40px" align="left" valign="middle" style="border-bottom: solid 1px #dfe3e8">
+                      <strong
+                        style="font-family: arial; font-size: 12px; font-weight: bold; color: #212B36; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Productos</strong>
+                    </td>
+                    <td width="40%" height="40px" valign="middle" style="border-bottom: solid 1px #dfe3e8;">&nbsp; </td>
+                    <td width="15%" height="40px" align="center" valign="middle"
+                      style="border-bottom: solid 1px #dfe3e8;">
+                      <strong class="hide-mobile"
+                        style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Cantidad</strong>
+                    </td>
+                    <td width="25%" height="40px" align="right" valign="middle" style="border-bottom: solid 1px #ccc;">
+                      <strong class="hide-mobile"
+                        style="font-family: arial; font-size: 12px; font-weight: bold; color: #454F5B; margin: 0; padding: 0; letter-spacing: 0; opacity: .48; line-height: 20px;">Subtotal</strong>
+                    </td>
+                  </tr>
+                  <!-- Titulos Productos. End -->
+                  {{#each items}}
+                  <!-- Resumen Productos. Begin -->
+                  <tr>
+                    <td width="10%" height="70px" align="left" valign="middle">
+                      <img style="width: 60px; max-width: 60px; display: block; height: auto;" src="{{imageUrl}}"
+                        alt="{{name}} | Chedraui">
+                    </td>
+                    {{eval "Handlebars.registerHelper('kilostotal', function (string) {
+                    return string.measurementUnit == 'kg' ? (
+                    ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier *
+                    string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
+                    ) : string.unitMultiplier + ' '+ string.measurementUnit
+                    });" }}
+                    {{eval "Handlebars.registerHelper('pza', function (string) {
+                    return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
+                    });" }}
+                    <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
+                      <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                        style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
+                      {{eval "Handlebars.registerHelper('gramos', function (string) {
+                      return string.measurementUnit == 'kg' ? (
+                      ((((string.unitMultiplier * 1000) * 1) % 1000) == 0) ? (string.unitMultiplier) + ' kg' :
+                      (string.unitMultiplier * 1000) + ' g'
+                      ) : string.unitMultiplier + ' '+ string.measurementUnit
+                      });" }}
+                      <p class="hide-mobile"
+                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
+                        $ {{formatUSDCurrency price}} - {{gramos .}}</p>
+                      <p class="mobile-box"
+                        style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
+                        $ {{formatUSDCurrency price}} - {{gramos .}}</p>
+                      <p class="mobile-box"
+                        style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin: 5px 0 0 0;">
+                        {{kilostotal .}}
+                        <small
+                          style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                          {{pza .}}
+                        </small>
+                      </p>
+                      <p class="mobile-box boxr"
+                        style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1; margin: 5px 0 0 0;">
+                        $ {{formatUSDCurrency priceDefinition.total}}</p>
+                    </td>
+                    <td class="hide-mobile" width="15%" height="70px" align="center" valign="middle">
+                      <p
+                        style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #212B36; margin-bottom:0;">
+                        {{kilostotal .}}
+                      </p>
+                      <p
+                        style="font-family: arial; font-size: 10px; font-weight: normal; line-height: 16px; color: #212B36; margin-top:0;">
+                        {{pza .}}
+                      </p>
+                    </td>
+                    <td class="hide-mobile" width="25%" height="70px" align="right" valign="middle">
+                      <p
+                        style="font-family: arial; font-size: 14px; font-weight: bold; line-height: 16px; color: #0D47A1;">
+                        $ {{formatUSDCurrency priceDefinition.total}}</p>
+                    </td>
+                  </tr>
+                  <!-- Resumen Productos. End -->
+                  {{/each}}
+                </table>
+              </td>
+            </tr>
+            <!-- Inside Productos Orders. End -->
+          </table>
+        </td>
+      </tr>
+      <!-- Inside Product. End -->
+      <!-- Inside Payment Summary. Begin -->
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="50%" align="left" valign="middle">
+                      <h2
+                        style="font-family: arial; font-size: 16px; font-weight: bold; color:#0d47a1; margin: 0; padding: 0; line-height: 18px;">
+                        Información de pago</h2>
+                    </td>
+                    <td width="50%" align="right" valign="middle">
+                      <p
+                        style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
+                        Impuestos incluidos</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <table width="100%" cellpadding="15" cellspacing="0"
+            style="border: solid 1px #dfe3e8; border-radius: 8px 8px 0 0; margin: 15px 0 0 0;">
+            <tr>
+              <td>
+                <table class="w-100" width="60%" cellspacing="8" cellpadding="0" align="right">
+                  <tbody>
+                    {{#each totals}}
+                    {{#if value}}
                     <tr>
-                      <td valign="middle" style="display: inline-flex; align-items: center;">
-                        <img style="display: block; height: auto; margin: auto; padding: 0 10px; width: 65px; max-width: 65px;" src="https://chedrauimx.vteximg.com.br/arquivos/super_seguro.png" />
-                        <p style="font-family: arial; font-size: 12px; font-weight: 400; color: #212B36; text-align: left; line-height: 14px; letter-spacing: -0.15px;"> Por tu seguridad, durante la contingencia de COVID 19, no será necesario firmes nada al momento de recibir tus productos, <a style="color: #f56d00; text-decoration: none;" href="https://chedrauimx.myvtex.com/medidas-frente-al-covid" target="_blank" rel="noopener noreferrer">consulta aquí más medidas frente al COVID-19 </span>. </p>
+                      <td valign="middle" align="left">
+                        {{#eq id "Items"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Subtotal </p>
+                        {{/eq}}
+                        {{#eq id "Shipping"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Costo de envío</p>
+                        {{/eq}}
+                        {{#eq id "Discounts"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Con Chedraui ahorras</p>
+                        {{/eq}}
+                        {{#eq id "Tax"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Taxas</p>
+                        {{/eq}}
+                        {{#eq id "Change"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Modificaciones</p>
+                        {{/eq}}
+                      </td>
+                      <td valign="top" align="right">
+                        {{#eq id "Items"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
+                        {{#eq id "Shipping"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
+                        {{#eq id "Tax"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
+                        {{#eq id "Change"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #212B36; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
+                        {{#eq id "Discounts"}}
+                        <p
+                          style="font-family: arial; font-size: 14px; font-weight: 400; color: #F56D00; line-height: 20px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        {{/eq}}
                       </td>
                     </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <!-- Inside COVID19. End -->
-        <!-- Inside Help Center. Begin -->
-        <tr>
-          <td>
-            <table width="100%" cellpadding="15" cellspacing="0">
-              <tr>
-                <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
-                  <table width="100%" cellpadding="0" cellspacing="0">
+                    {{/if}}
+                    {{/each}}
+                    {{#if value}}
                     <tr>
-                      <td width="100%" valign="middle">
-                        <strong style="font-family: arial; display: block; font-size: 14px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">¿Necesitas ayuda? </strong>
+                      <td valign="top" align="left">
+                        <p
+                          style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;">
+                          Total Pagado</p>
+                      </td>
+                      <td valign="top" align="right">
+                        <p
+                          style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
                       </td>
                     </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" cellpadding="0" cellspacing="0">
-              <tr>
-                <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
-                  <table width="100%" cellpadding="0" cellspacing="15">
+                    {{/if}}
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <table width="100%" cellpadding="15" cellspacing="0"
+            style="background: #F0F5FD; border: solid 1px #F0F5FD; border-radius: 0px;">
+            <tr>
+              <td>
+                <table class="w-100" width="60%" cellspacing="0" cellpadding="0" align="right">
+                  <tbody>
+                    {{#if value}}
                     <tr>
-                      <td class="delivery-group-content" width="50%" valign="middle" align="left" bgcolor="#FFFFFF" style="border: solid 1px #F0F5FD;">
-                        <a href="https://chedrauimx.myvtex.com/compras-en-linea/entergas-a-domicilio/02" target="_blank" rel="noopener noreferrer" style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(https://chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo puedo cambiar la hora o día de entrega de mi pedido?</a>
+                      <td valign="top" align="left">
+                        <p
+                          style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;">
+                          Total del pedido</p>
+                        <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
                       </td>
-                      <td class="delivery-group-content" width="50%" valign="middle" align="left" bgcolor="#FFFFFF" style="border: solid 1px #F0F5FD;">
-                        <a href="https://chedrauimx.myvtex.com/compras-en-linea/problemas-con-mi-pedido/03" target="_blank" rel="noopener noreferrer" style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(https://chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo puedo cancelar mi pedido?</a>
+                      <td valign="top" align="right">
+                        <p
+                          style="font-family: arial; font-size: 16px; font-weight: bold; color: #0D47A1; line-height: 24px; letter-spacing: 0; margin: 0 0 10px 0; padding: 0;">
+                          $ {{formatUSDCurrency value}}</p>
+                        <hr style="margin: 0 0 5 px 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
                       </td>
                     </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" cellpadding="0" cellspacing="0">
-              <tr>
-                <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
-                  <table width="100%" cellpadding="15" cellspacing="0">
-                    <tr>
-                      <td width="100%" valign="middle" align="center">
-                        <hr style="margin: 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-            <table width="100%" cellpadding="0" cellspacing="0">
-              <tr>
-                <td style="border: solid 1px #F0F5FD" bgcolor="#F0F5FD">
-                  <table width="100%" cellpadding="0" cellspacing="15">
-                    <tr>
-                      <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
-                        <img style="width: 50px; max-width: 50px; height: auto;" src="https://chedrauimx.vteximg.com.br/arquivos/ayuda.png" />
-                        <a href="https://chedrauimx.myvtex.com/centro-de-ayuda" target="_blank" rel="noopener noreferrer" style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;"> Visita el Centro de ayuda</a>
-                      </td>
-                      <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
-                        <img style="width: 50px; max-width: 50px; height: auto;" src="https://chedrauimx.vteximg.com.br/arquivos/llamanos.png" />
-                        <a href="tel:55-5563-2222" style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;"> Llámanos al 55 5563 2222</a>
-                      </td>
-                      <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
-                        <img style="width: 50px; max-width: 50px; height: auto;" src="https://chedrauimx.vteximg.com.br/arquivos/correo.png" />
-                        <a href="mailto:ayuda@chedraui.com.mx" style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;"> Envíanos un correo</a>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <!-- Inside Help Center. End -->
-      </tbody>
-      <!-- Content. Begin -->
-      <!-- Footer. Begin -->
-      <tfoot>
-        <tr>
-          <td>
-            <table width="100%" cellpadding="0" cellspacing="0">
-              <tr>
-                <td>
-                  <table width="100%" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td width="100%" valign="middle" align="center">
-                        <img style="display: block; width: 143px; max-width: 143px; height: auto; margin: 0 auto 15px;" src="https://chedrauimx.vteximg.com.br/arquivos/siempre_linea_logo.png" />
-                        <p style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;"> Gracias por comprar en nuestra tienda en línea <a style="text-decoration: none; color: #F56D00;" href="https://chedrauimx.myvtex.com/" target="_blank" rel="noopener noreferrer">chedraui.com.mx</a>. </p>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </tfoot>
-      <!-- Footer. End -->
-    </table>
-  </body>
+                    {{/if}}
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      {{/each}}
+      {{/compare}}
+      <!-- Inside Payment Summary. Begin -->
+      <!-- Inside COVID19. Begin -->
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td valign="middle" style="display: inline-flex; align-items: center;">
+                      <img
+                        style="display: block; height: auto; margin: auto; padding: 0 10px; width: 65px; max-width: 65px;"
+                        src="https://chedrauimx.vteximg.com.br/arquivos/super_seguro.png" />
+                      <p
+                        style="font-family: arial; font-size: 12px; font-weight: 400; color: #212B36; text-align: left; line-height: 14px; letter-spacing: -0.15px;">
+                        Por tu seguridad, durante la contingencia de COVID 19, no será necesario firmes nada al momento
+                        de recibir tus productos, <a style="color: #f56d00; text-decoration: none;"
+                          href="https://nuevo.chedraui.com.mx/medidas-frente-al-covid" target="_blank"
+                          rel="noopener noreferrer">consulta aquí más medidas frente al COVID-19 </span>. </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Inside COVID19. End -->
+      <!-- Inside Help Center. Begin -->
+      <tr>
+        <td>
+          <table width="100%" cellpadding="15" cellspacing="0">
+            <tr>
+              <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <strong
+                        style="font-family: arial; display: block; font-size: 14px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0;">¿Necesitas
+                        ayuda? </strong>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
+                <table width="100%" cellpadding="0" cellspacing="15">
+                  <tr>
+                    <td class="delivery-group-content" width="50%" valign="middle" align="left" bgcolor="#FFFFFF"
+                      style="border: solid 1px #F0F5FD;">
+                      <a href="https://nuevo.chedraui.com.mx/compras-en-linea/entergas-a-domicilio/02" target="_blank"
+                        rel="noopener noreferrer"
+                        style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(https://chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo
+                        puedo cambiar la hora o día de entrega de mi pedido?</a>
+                    </td>
+                    <td class="delivery-group-content" width="50%" valign="middle" align="left" bgcolor="#FFFFFF"
+                      style="border: solid 1px #F0F5FD;">
+                      <a href="https://nuevo.chedraui.com.mx/compras-en-linea/problemas-con-mi-pedido/03"
+                        target="_blank" rel="noopener noreferrer"
+                        style="text-decoration: none; font-family: arial; font-weight: 400; line-height: 16px; font-size: 12px; letter-spacing: 0px; color: #212B36; padding: 15px 30px 15px 15px; overflow: hidden; display: block; background: url(https://chedrauimx.vteximg.com.br/arquivos/assets-arrow-left.png) no-repeat right center; margin: 0 10px 0 0; background-size: 8px;">¿Cómo
+                        puedo cancelar mi pedido?</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="border: solid 1px #F0F5FD; background: #F0F5FD;">
+                <table width="100%" cellpadding="15" cellspacing="0">
+                  <tr>
+                    <td width="100%" valign="middle" align="center">
+                      <hr style="margin: 0; border: 0.5 px solid #dfe3e8; opacity: .35;">
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="border: solid 1px #F0F5FD" bgcolor="#F0F5FD">
+                <table width="100%" cellpadding="0" cellspacing="15">
+                  <tr>
+                    <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
+                      <img style="width: 50px; max-width: 50px; height: auto;"
+                        src="https://chedrauimx.vteximg.com.br/arquivos/ayuda.png" />
+                      <a href="https://nuevo.chedraui.com.mx/centro-de-ayuda" target="_blank" rel="noopener noreferrer"
+                        style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;">
+                        Visita el Centro de ayuda</a>
+                    </td>
+                    <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
+                      <img style="width: 50px; max-width: 50px; height: auto;"
+                        src="https://chedrauimx.vteximg.com.br/arquivos/llamanos.png" />
+                      <a href="tel:55-5563-2222"
+                        style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;">
+                        Llámanos al 55 5563 2222</a>
+                    </td>
+                    <td width="33.3%" valign="middle" align="center" bgcolor="#FFFFFF">
+                      <img style="width: 50px; max-width: 50px; height: auto;"
+                        src="https://chedrauimx.vteximg.com.br/arquivos/correo.png" />
+                      <a href="mailto:ayuda@chedraui.com.mx"
+                        style="font-family: arial; display: block; font-size: 10px; font-weight: bold; color: #0D47A1; line-height: 16px; padding: 0; margin: 0; text-decoration: none;">
+                        Envíanos un correo</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Inside Help Center. End -->
+    </tbody>
+    <!-- Content. Begin -->
+    <!-- Footer. Begin -->
+    <tfoot>
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="100%" valign="middle" align="center">
+                      <img style="display: block; width: 143px; max-width: 143px; height: auto; margin: 0 auto 15px;"
+                        src="https://chedrauimx.vteximg.com.br/arquivos/siempre_linea_logo.png" />
+                      <p
+                        style="font-family:arial; font-size: 10px; font-weight: 400; color: #212b367a; line-height: 11px; margin: 0; padding: 0;">
+                        Gracias por comprar en nuestra tienda en línea <a style="text-decoration: none; color: #F56D00;"
+                          href="https://nuevo.chedraui.com.mx/" target="_blank"
+                          rel="noopener noreferrer">chedraui.com.mx</a>. </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tfoot>
+    <!-- Footer. End -->
+  </table>
+</body>
+
 </html>
