@@ -124,7 +124,19 @@
                       <p
                         style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                         Se ha completado la entrega de todos los productos asociados a tu pedido <strong
-                          style="color: #F56D00;">{{orderId}}</strong> ¡esperamos que los disfrutes!. Muchas gracias por
+                          style="color: #F56D00;">
+                        <!-- PAGO EN TIENDA CHEDRAUI Pre-pago en tiendas Chedraui -->
+                        {{#compare paymentData.transactions.0.payments.0.paymentSystem "==" 203}}
+                        {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                          return string.toString().replace(/chedrauimx/g, '')
+                        });"}}
+                        #{{sellerTransform sellers.0.id}}-{{sequence}}
+                      {{/compare}}
+
+                      {{#compare paymentData.transactions.0.payments.0.paymentSystem "!=" 203}}
+                        {{orderId}}
+                      {{/compare}}
+                        </strong>¡esperamos que los disfrutes!. Muchas gracias por
                         tu compra. </p>
                     </td>
                   </tr>
@@ -238,7 +250,7 @@
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
                     });" }}
                     <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                      <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                      <a href="https://nuevo.chedraui.com.mx{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
                         style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
                       {{eval "Handlebars.registerHelper('gramos', function (string) {
                       return string.measurementUnit == 'kg' ? (
@@ -312,7 +324,7 @@
                         alt="{{name}} | Chedraui">
                     </td>
                     <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                      <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                      <a href="https://nuevo.chedraui.com.mx{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
                         style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{name}}</a>
                       <p class="hide-mobile"
                         style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">
@@ -381,7 +393,7 @@
                         alt="{{name}} | Chedraui">
                     </td>
                     <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                      <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                      <a href="https://nuevo.chedraui.com.mx{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
                         style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{name}}</a>
                       <p class="hide-mobile"
                         style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 16px; color: #6D737B; margin: 5px 0 0 0;">

@@ -127,201 +127,47 @@
                         style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0; text-transform:capitalize;">
                         Hola, {{orders.0.clientProfileData.firstName}}.</h2>
                       <br />
-                      <!-- AMERICAN EXPRESS -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
+
+                      {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "==" 203}}
+                        <!-- PAGO EN TIENDA CHEDRAUI -->
+                        {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                        return string.toString().replace(/chedrauimx/g, '')
+                        });"}}
+                        <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                          Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia (#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
+                          
+                          {{#compare orders.0.shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                            <strong>antes del {{formatDateTime orders.0.shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}
+                          {{/compare}}
+                          
+                          </strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
+                          <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
+                        </p>
+                      {{/compare}}
+                      
+                      {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "!=" 203}}
                       <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                          de pago</strong> a través del medio seleccionado. <br />
-                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
-                          asociados</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                      </p>
-                      {{/eq}}
-                      <!-- VISA -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
-                      <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                          de pago</strong> a través del medio seleccionado. <br />
-                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
-                          asociados</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                      </p>
-                      {{/eq}}
-                      <!-- MASTERCARD -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
-                      <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                          de pago</strong> a través del medio seleccionado. <br />
-                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
-                          asociados</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                      </p>
-                      {{/eq}}
-                      <!-- PAYPAL -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
-                      <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                          de pago</strong> a través del medio seleccionado. <br />
-                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
-                          asociados</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                      </p>
-                      {{/eq}}
-                      <!-- VALE -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
-                      <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                          de pago</strong> a través del medio seleccionado. <br />
-                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
-                          asociados</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                      </p>
-                      {{/eq}}
-                      <!-- CASH ON DELIVERY -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
-                      <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                          de pago</strong> a través del medio seleccionado. <br />
-                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
-                          asociados</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                      </p>
-                      {{/eq}}
-                      <!-- PAGO EN TIENDA -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '202'}}
-                      <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                          de pago</strong> a través del medio seleccionado. <br />
-                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
-                          asociados</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                      </p>
-                      {{/eq}}
-                      <!-- PAGO EN TIENDA CHEDRAUI -->
-                      {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
-                      return string.toString().replace(/chedrauimx/g, '')
-                      });"}}
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
-                      <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia
-                          (#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
-                      </p>
-                      {{/eq}}
-                      <!-- PUNTOS BBVA -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
-                      <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                          de pago</strong> a través del medio seleccionado. <br />
-                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
-                          asociados</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                      </p>
-                      {{/eq}}
-                      <!-- VALES -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
-                      <p
-                        style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                          de pago</strong> a través del medio seleccionado. <br />
-                        <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos
-                          asociados</strong>
-                        <strong>antes del {{formatDateTime
-                          shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> para poder confirmar tu
-                        pedido a tiempo para la entrega agendada. <br />
-                        <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                          de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                      </p>
-                      {{/eq}}
+                      style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                      Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                        {{#each orders}}
+                        {{orderId}}
+                        {{/each}}
+                      </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
+                        de pago</strong> a través del medio seleccionado. <br />
+
+                      <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
+                      
+                      {{#compare orders.0.shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                      <strong>antes del {{formatDateTime orders.0.shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> 
+                      {{/compare}}
+
+                      para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
+                      <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
+                        de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
+                      el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                    </p>
+                      {{/compare}}
+                      
                     </td>
                   </tr>
                 </table>
@@ -340,96 +186,26 @@
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td width="100%" valign="middle" align="center">
-                      <!-- AMERICAN EXPRESS -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
+
+                      {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "!=" 202}}
                       <p>
                         <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
                       </p>
-                      {{/eq}}
-                      <!-- VISA -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- MASTERCARD -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- PAYPAL -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- VALE -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- CASH ON DELIVERY -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
+
+                      {{/compare}}
+
                       <!-- PAGO EN TIENDA -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '202'}}
+                      {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "==" 202}}
                       <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
+                        <a href="https://sandbox-dashboard.{{orders.0.paymentData.transactions.0.payments.0.connectorResponses.acquirer}}.mx/paynet-pdf/ml7ihaxhfomook7tp9ei/{{orders.0.paymentData.transactions.0.payments.0.connectorResponses.Tid}}"
+                          target="_blank" rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
+                          Ver archivo de pago </a>
                       </p>
-                      {{/eq}}
-                      <!-- PAGO EN TIENDA CHEDRAUI -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- PUNTOS BBVA -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- VALES -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
+                      {{/compare}}
                     </td>
                   </tr>
                 </table>
@@ -468,7 +244,7 @@
                           src="//chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
                         {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
                       </p>
-                      {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                      {{#compare orders.0.shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
                       <p class="delivery-group-contents"
                         style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
                         <img
@@ -538,7 +314,7 @@
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
                     });" }}
                     <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                      <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                      <a href="https://nuevo.chedraui.com.mx{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
                         style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
                       {{eval "Handlebars.registerHelper('gramos', function (string) {
                       return string.measurementUnit == 'kg' ? (
@@ -746,7 +522,7 @@
                           src="//chedrauimx.vteximg.com.br/arquivos/assets-envio-che.png" />
                         {{shippingData.logisticsInfo.0.slas.0.deliveryIds.0.courierName}}
                       </p>
-                      {{#compare shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                      {{#compare orders.0.shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
                       <p class="delivery-group-contents"
                         style="font-family: arial; font-size: 12px; font-weight: 400; line-height: 20px; color: #0D47A1; float:right; margin: 0;">
                         <img
@@ -816,7 +592,7 @@
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
                     });" }}
                     <td class="delivery-group-content-table" width="50%" height="70px" align="left" valign="middle">
-                      <a href="https://chedrauimx.myvtex.com{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
+                      <a href="https://nuevo.chedraui.com.mx{{detailUrl}}" target=" _blank" rel="noopener noreferrer"
                         style="font-family: arial; font-size: 14px; font-weight: 400; line-height: 16px; color: #212B36; text-decoration: none; display: block;">{{skuName}}</a>
                       {{eval "Handlebars.registerHelper('gramos', function (string) {
                       return string.measurementUnit == 'kg' ? (

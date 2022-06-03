@@ -128,6 +128,7 @@
                         style="font-family: arial; font-size: 18px; font-weight: bold; color:#0d47a1; line-height: 24px; letter-spacing: 0px; margin: 0; padding: 0; text-transform:capitalize;">
                         Hola, {{orders.0.clientProfileData.firstName}}.</h2>
                       <br />
+
                       <!-- AMERICAN EXPRESS -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
                       <p
@@ -168,6 +169,7 @@
                           {{/each}}
                         </strong> ha sido confirmado exitosamente y ya estamos trabajando para ti. </p>
                       {{/eq}}
+
                       <!-- VALE -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
                       <p
@@ -178,6 +180,7 @@
                           {{/each}}
                         </strong> ha sido confirmado exitosamente y ya estamos trabajando para ti. </p>
                       {{/eq}}
+
                       <!-- CASH ON DELIVERY Pago contra entrega -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
                       <p
@@ -188,6 +191,7 @@
                           {{/each}}
                         </strong> ha sido confirmado exitosamente y ya estamos trabajando para ti. </p>
                       {{/eq}}
+
                       <!-- PAGO EN TIENDA Pre-Pago en establecimientos asociados-->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '202'}}
                       <p
@@ -204,15 +208,21 @@
                         <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
                       </p>
                       {{/eq}}
+
                       <!-- PAGO EN TIENDA CHEDRAUI Pre-pago en tiendas Chedraui -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
                       <p
                         style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        Recibimos tu orden de pedido <strong style="color: #F56D00;">
-                          {{#each orders}}
-                          {{orderId}}
-                          {{/each}}
-                        </strong><span style="margin-left: -5px;">, sin embargo</span> <strong>no podremos confirmar tu
+                        Recibimos tu orden de pedido 
+
+                        <strong style="color: #F56D00;">
+                          {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                            return string.toString().replace(/chedrauimx/g, '')
+                          });"}}
+                            #{{sellerTransform orders.0.sellers.0.id}}-{{orders.0.sequence}}
+                        </strong>
+                        
+                        <span style="margin-left: -5px;">, sin embargo</span> <strong>no podremos confirmar tu
                           compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado.
                         <br />
                         <br /> Acércate a la tienda <strong style="color: #F56D00;">Chedraui</strong> de tu preferencia
@@ -221,6 +231,7 @@
                         <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
                       </p>
                       {{/eq}}
+
                       <!-- PUNTOS BBVA -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
                       <p
@@ -231,6 +242,7 @@
                           {{/each}}
                         </strong> ha sido confirmado exitosamente y ya estamos trabajando para ti. </p>
                       {{/eq}}
+
                       <!-- VALES -->
                       {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
                       <p
@@ -259,96 +271,26 @@
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td width="100%" valign="middle" align="center">
-                      <!-- AMERICAN EXPRESS -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '1'}}
+                      
+
+                      {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "!=" 202}}
                       <p>
                         <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
                           rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Dar seguimiento a mi pedido </a>
                       </p>
-                      {{/eq}}
-                      <!-- VISA -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '2'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- MASTERCARD   -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '4'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- PAYPAL -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '12'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- VALE -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '16'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- CASH ON DELIVERY -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '201'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
+                      {{/compare}}
+
                       <!-- PAGO EN TIENDA -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '202'}}
+                      {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "==" 202}}
                       <p>
                         <a href="https://sandbox-dashboard.{{orders.0.paymentData.transactions.0.payments.0.connectorResponses.acquirer}}.mx/paynet-pdf/ml7ihaxhfomook7tp9ei/{{orders.0.paymentData.transactions.0.payments.0.connectorResponses.Tid}}"
                           target="_blank" rel="noopener noreferrer"
                           style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
                           Ver archivo de pago </a>
                       </p>
-                      {{/eq}}
-                      <!-- PAGO EN TIENDA CHEDRAUI -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '203'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- PUNTOS BBVA -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '501'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
-                      <!-- VALES -->
-                      {{#eq orders.0.paymentData.transactions.0.payments.0.paymentSystem '502'}}
-                      <p>
-                        <a href="https://nuevo.chedraui.com.mx/account#/orders" target="_blank"
-                          rel="noopener noreferrer"
-                          style="font-family: arial; font-size: 12px; font-weight: 400; color: #ffffff; line-height: 16px; letter-spacing: 0; padding:10px; border-radius: 5px; background: #F56D00;  display: inline-block; width: 235px; text-decoration: none; cursor: pointer;">
-                          Dar seguimiento a mi pedido </a>
-                      </p>
-                      {{/eq}}
+                      {{/compare}}
                     </td>
                   </tr>
                 </table>
