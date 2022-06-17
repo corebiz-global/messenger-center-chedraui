@@ -382,7 +382,7 @@
                     return string.measurementUnit == 'kg' ? (
                     ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier *
                     string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
-                    ) : string.unitMultiplier + ' '+ string.measurementUnit
+                    ) : string.quantity + ' '+ string.measurementUnit
                     });" }}
                     {{eval "Handlebars.registerHelper('pza', function (string) {
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '

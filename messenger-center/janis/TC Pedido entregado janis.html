@@ -124,16 +124,24 @@
                         Se ha completado la entrega de todos los productos asociados a tu pedido <strong
                           style="color: #F56D00;">
                           
-                          {{#compare paymentData.transactions.0.payments.0.paymentSystem "==" 203}}
-                        <!-- PAGO EN TIENDA CHEDRAUI -->
-                        {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
-                        return string.toString().replace(/chedrauimx/g, '')
-                        });"}}
-                        (#{{sellerTransform sellers.0.id}}-{{sequence}})
+                        {{#compare paymentData.transactions.0.payments.0.paymentSystem "==" 203}}
+                          {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                          return string.toString().replace(/chedrauimx/g, '')
+                          });"}}
+                          (#{{sellerTransform sellers.0.id}}-{{sequence}})
+                        {{/compare}}
+
+                        {{#compare paymentData.transactions.0.payments.0.paymentSystem "==" 202}}
+                          {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                          return string.toString().replace(/chedrauimx/g, '')
+                          });"}}
+                          (#{{sellerTransform sellers.0.id}}-{{sequence}})
                         {{/compare}}
 
                         {{#compare paymentData.transactions.0.payments.0.paymentSystem "!=" 203}}
-                        {{orderId}}
+                          {{#compare paymentData.transactions.0.payments.0.paymentSystem "!=" 202}}
+                            {{orderId}}
+                          {{/compare}}
                         {{/compare}}
                         
                         
@@ -243,7 +251,7 @@
                     return string.measurementUnit == 'kg' ? (
                     ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier *
                     string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
-                    ) : string.unitMultiplier + ' '+ string.measurementUnit
+                    ) : string.quantity + ' '+ string.measurementUnit
                     });" }}
                     {{eval "Handlebars.registerHelper('pza', function (string) {
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '

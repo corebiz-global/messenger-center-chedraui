@@ -89,8 +89,7 @@
           <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
             <tr>
               <td width="40%" align="left" valign="middle">
-                <p
-                  style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
+                <p style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
                   Pago pendiente</p>
               </td>
               <td width="20%" align="center" valign="middle">
@@ -101,8 +100,7 @@
               </td>
               <td width="40%" align="right" valign="middle">
                 {{#each orders}}
-                <p
-                  style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
+                <p style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
                   Pedido {{orderId}}</p>
                 {{/each}}
               </td>
@@ -129,45 +127,55 @@
                       <br />
 
                       {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "==" 203}}
-                        <!-- PAGO EN TIENDA CHEDRAUI -->
                         {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
                         return string.toString().replace(/chedrauimx/g, '')
                         });"}}
+
                         <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
                           Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia (#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
-                          
                           {{#compare orders.0.shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
                             <strong>antes del {{formatDateTime orders.0.shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}
                           {{/compare}}
-                          
+                          </strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
+                          <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
+                        </p>
+                      {{/compare}}
+
+                      {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "==" 202}}
+                        {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                        return string.toString().replace(/chedrauimx/g, '')
+                        });"}}
+
+                        <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                          Acércate a la <strong style="color: #F56D00;">tienda Chedraui de tu preferencia (#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
+                          {{#compare orders.0.shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                            <strong>antes del {{formatDateTime orders.0.shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}
+                          {{/compare}}
                           </strong> para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
                           <br /> Puedes utilizar cualquiera de las formas de pago admitidas en nuestras tiendas.
                         </p>
                       {{/compare}}
                       
                       {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "!=" 203}}
-                      <p
-                      style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                      Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
-                        {{#each orders}}
-                        {{orderId}}
-                        {{/each}}
-                      </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente
-                        de pago</strong> a través del medio seleccionado. <br />
-
-                      <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
-                      
-                      {{#compare orders.0.shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
-                      <strong>antes del {{formatDateTime orders.0.shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> 
+                        {{#compare orders.0.paymentData.transactions.0.payments.0.paymentSystem "!=" 202}}
+                          <p style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
+                            Hemos recibido tu orden de pedido <strong style="color: #F56D00;">
+                              {{#each orders}}
+                                {{orderId}}
+                              {{/each}}
+                          </strong>, sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
+                          <br /> Acércate a alguno de los <strong style="color: #F56D00;">establecimientos asociados</strong>
+                          {{#compare orders.0.shippingData.logisticsInfo.0.slas.0.deliveryWindow "!=" null}}
+                          <strong>antes del {{formatDateTime orders.0.shippingData.logisticsInfo.0.slas.0.shippingEstimateDate}}</strong> 
+                          {{/compare}}
+                          para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
+                          <br /> Recuerda que debes llevar el 
+                          <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie el pago a tu pedido. 
+                          <br />El pago se registrará rápidamente y enviaremos la confirmación.
+                        </p>
+                        {{/compare}}
                       {{/compare}}
 
-                      para poder confirmar tu pedido a tiempo para la entrega agendada. <br />
-                      <br /> Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea
-                        de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                      el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
-                    </p>
-                      {{/compare}}
-                      
                     </td>
                   </tr>
                 </table>
@@ -308,7 +316,7 @@
                     return string.measurementUnit == 'kg' ? (
                     ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier *
                     string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
-                    ) : string.unitMultiplier + ' '+ string.measurementUnit
+                    ) : string.quantity + ' '+ string.measurementUnit
                     });" }}
                     {{eval "Handlebars.registerHelper('pza', function (string) {
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
@@ -586,7 +594,7 @@
                     return string.measurementUnit == 'kg' ? (
                     ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier *
                     string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
-                    ) : string.unitMultiplier + ' '+ string.measurementUnit
+                    ) : string.quantity + ' '+ string.measurementUnit
                     });" }}
                     {{eval "Handlebars.registerHelper('pza', function (string) {
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '

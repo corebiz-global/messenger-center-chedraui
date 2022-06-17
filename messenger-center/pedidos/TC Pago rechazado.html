@@ -89,8 +89,7 @@
           <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom: solid 1px #dfe3e8;">
             <tr>
               <td width="40%" align="left" valign="middle">
-                <p
-                  style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
+                <p style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
                   Pago rechazado</p>
               </td>
               <td width="20%" align="center" valign="middle">
@@ -100,8 +99,7 @@
                 </a>
               </td>
               <td width="40%" align="right" valign="middle">
-                <p
-                  style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
+                <p style="font-family: arial; font-size: 12px; font-weight: 400; color:#212B36; margin: 0; padding: 0; line-height: 14px; opacity: 0.48;">
                   Pedido {{orderId}}</p>
               </td>
             </tr>
@@ -131,15 +129,23 @@
                         Hemos recibido tu orden de pedido 
 
                         {{#compare paymentData.transactions.0.payments.0.paymentSystem "==" 203}}
-                      <!-- PAGO EN TIENDA CHEDRAUI -->
-                        {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
-                        return string.toString().replace(/chedrauimx/g, '')
-                        });"}}
-                        <strong style="color: #F56D00;">(#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
+                          {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                          return string.toString().replace(/chedrauimx/g, '')
+                          });"}}
+                          <strong style="color: #F56D00;">(#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
+                        {{/compare}}
+
+                        {{#compare paymentData.transactions.0.payments.0.paymentSystem "==" 202}}
+                          {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                          return string.toString().replace(/chedrauimx/g, '')
+                          });"}}
+                          <strong style="color: #F56D00;">(#{{sellerTransform sellers.0.id}}-{{sequence}})</strong>
                         {{/compare}}
 
                         {{#compare paymentData.transactions.0.payments.0.paymentSystem "!=" 203}}
-                        <strong style="color: #F56D00;">{{orderId}}</strong>
+                          {{#compare paymentData.transactions.0.payments.0.paymentSystem "!=" 202}}
+                            <strong style="color: #F56D00;">{{orderId}}</strong>
+                          {{/compare}}
                         {{/compare}}
                         
                         , sin embargo <strong>no podremos confirmar tu compra hasta recibir el monto pendiente de pago</strong> a través del medio seleccionado. <br />
@@ -152,7 +158,8 @@
                         para poder confirmar tupedido a tiempo para la entrega agendada. <br /> <br /> 
 
                         Recuerda que debes llevar el <strong style="color: #F56D00;">archivo de pago con tu línea de captura</strong>, que es una serie de números y letras para que el negocio afiliado asocie
-                        el pago a tu pedido. El pago se registrará rápidamente y enviaremos la confirmación.
+                        el pago a tu pedido. 
+                        <br /> El pago se registrará rápidamente y enviaremos la confirmación.
                       </p>
                       
                     </td>
@@ -316,7 +323,7 @@
                     return string.measurementUnit == 'kg' ? (
                     ((((string.unitMultiplier * 1000) * string.quantity) % 1000) == 0) ? (string.unitMultiplier *
                     string.quantity) + ' kg' : (string.unitMultiplier * 1000 * string.quantity) + ' g'
-                    ) : string.unitMultiplier + ' '+ string.measurementUnit
+                    ) : string.quantity + ' '+ string.measurementUnit
                     });" }}
                     {{eval "Handlebars.registerHelper('pza', function (string) {
                     return string.measurementUnit == 'kg' ? (string.quantity) + ' pza' : ' '
