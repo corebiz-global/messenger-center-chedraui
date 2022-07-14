@@ -8,7 +8,7 @@
  * TC pago aprobado PAGO APROBADO
  * PAGO APROBADO
  * Meta Title
- * ¡Su pago con la orden #{{orderId}} ha sido aprobado!
+ * ¡Su pago ha sido aprobado!
 =================================================
 -->
 <!DOCTYPE html>
@@ -123,7 +123,38 @@
                       <br />
                       <p
                         style="font-family: arial; font-size: 16px; font-weight: 400; color: #212b36; line-height: 22px; letter-spacing: 0px; margin: 0; padding: 0;">
-                        <strong>Tu compra ha sido confirmada.</strong> Hemos enviado la información de tu pedido, junto
+                        
+                        <strong>Tu compra ha sido confirmada</strong> 
+
+                        {{#compare paymentData.transactions.0.payments.0.paymentSystem "!=" 203}}
+                          {{#compare paymentData.transactions.0.payments.0.paymentSystem "!=" 202}}
+                          <strong style="color: #F56D00;">
+                                {{orderId}}
+                            </strong>
+                          {{/compare}}
+                        {{/compare}}
+
+                        {{#compare paymentData.transactions.0.payments.0.paymentSystem "==" 203}}
+                          <strong style="color: #F56D00;">
+                            {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                              return string.toString().replace(/chedrauimx/g, '')
+                            });"}}
+                              #{{sellerTransform sellers.0.id}}-{{sequence}}
+                          </strong>
+                        {{/compare}}
+
+                        {{#compare paymentData.transactions.0.payments.0.paymentSystem "==" 202}}
+                          <strong style="color: #F56D00;">
+                            {{eval "Handlebars.registerHelper('sellerTransform', function(string) {
+                              return string.toString().replace(/chedrauimx/g, '')
+                            });"}}
+                              #{{sellerTransform sellers.0.id}}-{{sequence}}
+                          </strong>
+                        {{/compare}}
+                        
+                        
+                        
+                        Hemos enviado la información de tu pedido, junto
                         con tus notas, a nuestro equipo en tienda para que comiencen a trabajar en la mejor selección de
                         productos.
                       </p>
